@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Button from '../../components/Button.astro';
+
+const icons = {
+  garden: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
+  tree: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3L4 14h5v7h6v-7h5L12 3z"/></svg>',
+  box: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>',
+  snow: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m5-17l-5 5-5-5m10 14l-5-5-5 5M2 12h20M5 7l5 5-5 5m14-10l-5 5 5 5"/></svg>',
+};
+
+const services = [
+  {
+    title: 'Gartenpflege & Heckenschnitt',
+    description: 'Regelmäßige Pflege, saubere Rückschnitte und ein gepflegter Außenbereich – für private Grundstücke und kleinere Objekte.',
+    href: '/leistungen/gartenpflege-heckenschnitt',
+    icon: icons.garden,
+  },
+  {
+    title: 'Baumpflege & Fällarbeiten',
+    description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen – fachgerecht, umsichtig und mit Blick auf Sicherheit.',
+    href: '/leistungen/baumpflege-faellarbeiten',
+    icon: icons.tree,
+  },
+  {
+    title: 'Entrümpelung & Haushaltsauflösung',
+    description: 'Von Keller bis Dachboden: schnelle, diskrete und besenreine Räumung mit klarer Abstimmung.',
+    href: '/leistungen/entruempelung-haushaltsaufloesung',
+    icon: icons.box,
+  },
+  {
+    title: 'Winterdienst & kleinere Außenarbeiten',
+    description: 'Schneeräumung, Rasenkanten, kleinere Pflasterausbesserungen und weitere Arbeiten im Außenbereich.',
+    href: '/leistungen/winterdienst-aussenarbeiten',
+    icon: icons.snow,
+  },
+];
+---
+
+<BaseLayout
+  title="Leistungen – ERNST HAUS & GARTEN"
+  description="Gartenpflege, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten in Marienheide und Umgebung."
+  canonical="/leistungen"
+>
+  <!-- Breadcrumb -->
+  <div class="bg-warm-gray-50 border-b border-warm-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+      <nav class="text-sm text-warm-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-1.5">
+          <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Leistungen</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <Section bg="white" padding="large">
+    <SectionHeading
+      tag="h1"
+      title="Unsere Leistungen"
+      subtitle="Wir kümmern uns um die Arbeiten, die rund um Ihre Immobilie anfallen – verlässlich, sauber und mit klarer Abstimmung."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      {services.map(service => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+
+    <div class="mt-16 max-w-2xl mx-auto text-center">
+      <p class="text-warm-gray-600 leading-relaxed">
+        Sie sind sich nicht sicher, ob wir Ihnen bei Ihrem Anliegen helfen können? Schreiben Sie uns einfach – wir geben Ihnen gerne eine ehrliche Einschätzung.
+      </p>
+      <div class="mt-6">
+        <Button href="/kontakt" variant="primary" size="large">Jetzt Anfrage senden</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

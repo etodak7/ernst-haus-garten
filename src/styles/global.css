@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  /*
+   * CI-Farben abgeleitet aus Logo:
+   * Braun (Haus/Schrift): #685944
+   * Grün (Blätter/Fenster): #80c369
+   */
+
+  /* Grün-Palette – Ankerfarbe #80c369 */
+  --color-green-900: #2d4a22;
+  --color-green-800: #3d6330;
+  --color-green-700: #4e7d3e;
+  --color-green-600: #6aab54;
+  --color-green-500: #80c369;
+  --color-green-400: #99d185;
+  --color-green-300: #b3dea2;
+  --color-green-200: #cdecbf;
+  --color-green-100: #e6f5dc;
+  --color-green-50: #f3faee;
+
+  /* Braun-Palette – Ankerfarbe #685944 */
+  --color-earth-900: #2e2519;
+  --color-earth-800: #453828;
+  --color-earth-700: #584836;
+  --color-earth-600: #685944;
+  --color-earth-500: #7d6c55;
+  --color-earth-400: #9a8a74;
+  --color-earth-300: #b5a895;
+  --color-earth-200: #d1c9bc;
+  --color-earth-100: #e8e3db;
+  --color-earth-50: #f5f2ee;
+
+  /* Warm-Gray-Palette (neutral, leicht warm) */
+  --color-warm-white: #fafaf7;
+  --color-warm-gray-50: #f7f7f5;
+  --color-warm-gray-100: #eeede9;
+  --color-warm-gray-200: #e0dfd9;
+  --color-warm-gray-300: #c8c6be;
+  --color-warm-gray-400: #a09e95;
+  --color-warm-gray-500: #7a7870;
+  --color-warm-gray-600: #5c5a53;
+  --color-warm-gray-700: #3d3b36;
+  --color-warm-gray-800: #2a2926;
+  --color-warm-gray-900: #1a1917;
+
+  /* Font families – Lexend (Heading) + Source Sans 3 (Body)
+   * Lexend: breitere Buchstaben, offene Formen → bessere Lesbarkeit für 55+
+   * Source Sans 3: klar, professionell, gute deutsche Zeichenunterstützung */
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Lexend', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-warm-gray-800);
+  background-color: var(--color-warm-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Lexend */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Clickable elements */
+a, button, [role="button"], summary {
+  cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-green-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-gray-500);
+}

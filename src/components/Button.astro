@@ -1,0 +1,37 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'whatsapp' | 'outline';
+  size?: 'normal' | 'large';
+  class?: string;
+  external?: boolean;
+  ariaLabel?: string;
+}
+
+const { href, variant = 'primary', size = 'normal', class: className, external = false, ariaLabel } = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200';
+
+const variantClasses: Record<string, string> = {
+  primary: 'bg-green-600 text-white hover:bg-green-700 active:bg-green-800',
+  secondary: 'bg-white text-earth-600 border-2 border-earth-400 hover:bg-earth-50 active:bg-earth-100',
+  whatsapp: 'bg-[#25D366] text-white hover:bg-[#1fb855] active:bg-[#1a9e49]',
+  outline: 'bg-transparent text-warm-gray-700 border-2 border-warm-gray-300 hover:border-warm-gray-400 hover:bg-warm-gray-50',
+};
+
+const sizeClasses: Record<string, string> = {
+  normal: 'px-5 py-3 text-sm',
+  large: 'px-7 py-3.5 text-base',
+};
+
+const externalAttrs = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<a
+  href={href}
+  class:list={[baseClasses, variantClasses[variant], sizeClasses[size], className]}
+  aria-label={ariaLabel}
+  {...externalAttrs}
+>
+  <slot />
+</a>

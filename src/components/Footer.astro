@@ -1,0 +1,75 @@
+---
+const currentYear = new Date().getFullYear();
+const phone = '+49 XXXX XXXXXXX';
+const email = 'info@ernst-haus-garten.de';
+const whatsappLink = 'https://wa.me/49XXXXXXXXXXX';
+---
+
+<footer class="bg-earth-900 text-earth-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Spalte 1: Marke -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <span class="text-white font-bold text-lg tracking-tight">ERNST HAUS & GARTEN</span>
+        <p class="mt-3 text-base leading-relaxed text-earth-400">
+          Gartenpflege, Baumpflege und Entrümpelung in Marienheide und Umgebung.
+        </p>
+      </div>
+
+      <!-- Spalte 2: Leistungen -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-4">Leistungen</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/leistungen/gartenpflege-heckenschnitt" class="hover:text-white transition-colors">Gartenpflege & Heckenschnitt</a></li>
+          <li><a href="/leistungen/baumpflege-faellarbeiten" class="hover:text-white transition-colors">Baumpflege & Fällarbeiten</a></li>
+          <li><a href="/leistungen/entruempelung-haushaltsaufloesung" class="hover:text-white transition-colors">Entrümpelung</a></li>
+          <li><a href="/leistungen/winterdienst-aussenarbeiten" class="hover:text-white transition-colors">Winterdienst & Außenarbeiten</a></li>
+        </ul>
+      </div>
+
+      <!-- Spalte 3: Kontakt -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-4">Kontakt</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li>
+            <a href={`tel:${phone.replace(/\s/g, '')}`} class="hover:text-white transition-colors">
+              {phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${email}`} class="hover:text-white transition-colors">
+              {email}
+            </a>
+          </li>
+          <li>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              WhatsApp-Anfrage
+            </a>
+          </li>
+          <li class="pt-1">
+            <a href="/kontakt" class="hover:text-white transition-colors">
+              Kontaktformular
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Spalte 4: Region -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-4">Einsatzgebiet</h3>
+        <p class="text-sm leading-relaxed text-earth-400">
+          Marienheide, Gummersbach, Wipperfürth, Bergneustadt, Meinerzhagen, Wiehl, Engelskirchen
+        </p>
+      </div>
+    </div>
+
+    <!-- Untere Zeile -->
+    <div class="mt-12 pt-8 border-t border-earth-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-earth-400">
+      <p>&copy; {currentYear} ERNST HAUS & GARTEN. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-6">
+        <a href="/impressum" class="hover:text-earth-200 transition-colors">Impressum</a>
+        <a href="/datenschutz" class="hover:text-earth-200 transition-colors">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>

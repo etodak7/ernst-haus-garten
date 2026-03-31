@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import StepCard from '../components/StepCard.astro';
+import Button from '../components/Button.astro';
+import FAQ from '../components/FAQ.astro';
+
+const whatsappLink = 'https://wa.me/49XXXXXXXXXXX';
+const phone = '+49 XXXX XXXXXXX';
+
+const icons = {
+  garden: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
+  tree: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3L4 14h5v7h6v-7h5L12 3z"/></svg>',
+  box: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>',
+  snow: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m5-17l-5 5-5-5m10 14l-5-5-5 5M2 12h20M5 7l5 5-5 5m14-10l-5 5 5 5"/></svg>',
+};
+
+const services = [
+  {
+    title: 'Gartenpflege & Heckenschnitt',
+    description: 'Regelmäßige Pflege, saubere Rückschnitte und ein gepflegter Außenbereich – für private Grundstücke und kleinere Objekte.',
+    href: '/leistungen/gartenpflege-heckenschnitt',
+    icon: icons.garden,
+  },
+  {
+    title: 'Baumpflege & Fällarbeiten',
+    description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen – fachgerecht, umsichtig und mit Blick auf Sicherheit.',
+    href: '/leistungen/baumpflege-faellarbeiten',
+    icon: icons.tree,
+  },
+  {
+    title: 'Entrümpelung & Haushaltsauflösung',
+    description: 'Von Keller bis Dachboden: schnelle, diskrete und besenreine Räumung mit klarer Abstimmung.',
+    href: '/leistungen/entruempelung-haushaltsaufloesung',
+    icon: icons.box,
+  },
+  {
+    title: 'Winterdienst & kleinere Außenarbeiten',
+    description: 'Schneeräumung, Rasenkanten, kleinere Pflasterausbesserungen und weitere Arbeiten im Außenbereich.',
+    href: '/leistungen/winterdienst-aussenarbeiten',
+    icon: icons.snow,
+  },
+];
+
+const trustPoints = [
+  {
+    title: 'Regional und erreichbar',
+    text: 'Wir arbeiten in Marienheide und im Umkreis von etwa 30 km. Kurze Wege, direkte Kommunikation.',
+  },
+  {
+    title: 'Klare Absprachen',
+    text: 'Sie wissen vorher, was gemacht wird und was es kostet. Keine versteckten Extras.',
+  },
+  {
+    title: 'Saubere Ausführung',
+    text: 'Wir hinterlassen Ihren Garten und Außenbereich ordentlich – nicht halbfertig.',
+  },
+  {
+    title: 'Direkter Ansprechpartner',
+    text: 'Keine Callcenter-Schleifen. Sie sprechen direkt mit den Leuten, die auch die Arbeit machen.',
+  },
+];
+
+const regions = [
+  'Marienheide',
+  'Gummersbach',
+  'Wipperfürth',
+  'Bergneustadt',
+  'Meinerzhagen',
+  'Wiehl',
+  'Engelskirchen',
+];
+
+const faqItems = [
+  {
+    question: 'In welchem Gebiet arbeiten Sie?',
+    answer: 'Wir sind in Marienheide und im Umkreis von etwa 30 km im Einsatz – unter anderem in Gummersbach, Wipperfürth, Bergneustadt, Meinerzhagen, Wiehl und Engelskirchen.',
+  },
+  {
+    question: 'Kann ich Fotos per WhatsApp schicken?',
+    answer: 'Ja, sehr gerne. Schicken Sie uns einfach 2–3 Fotos per WhatsApp. Das hilft uns, den Aufwand schneller einzuschätzen und Ihnen eine erste Rückmeldung zu geben.',
+  },
+  {
+    question: 'Bieten Sie Besichtigungen an?',
+    answer: 'Bei größeren Arbeiten oder wenn eine Einschätzung anhand von Fotos nicht ausreicht, kommen wir gerne vorbei und schauen uns die Situation vor Ort an.',
+  },
+  {
+    question: 'Machen Sie auch kurzfristige Entrümpelungen?',
+    answer: 'Wir bemühen uns, auch kurzfristige Anfragen zeitnah zu bedienen. Kontaktieren Sie uns am besten direkt telefonisch oder per WhatsApp, damit wir die Verfügbarkeit klären können.',
+  },
+  {
+    question: 'Welche kleineren Außenarbeiten übernehmen Sie?',
+    answer: 'Dazu gehören zum Beispiel Rasenkanten setzen, kleinere Pflaster- und Plattenarbeiten, Ausbesserungen im Außenbereich und ähnliche Instandsetzungsarbeiten.',
+  },
+  {
+    question: 'Führen Sie Baumfällarbeiten durch?',
+    answer: 'Ja, wir führen Baumpflege und Fällarbeiten im zulässigen Rahmen durch. Bei der Ausführung berücksichtigen wir die geltenden Vorgaben und achten auf Sicherheit.',
+  },
+  {
+    question: 'Übernehmen Sie regelmäßige Gartenpflege?',
+    answer: 'Ja, wir bieten regelmäßige Gartenpflege an – zum Beispiel saisonale Mäharbeiten, Heckenschnitt und Gehölzpflege. Sprechen Sie uns einfach auf einen passenden Rhythmus an.',
+  },
+];
+---
+
+<BaseLayout
+  title="ERNST HAUS & GARTEN – Gartenpflege, Entrümpelung & Außenservice in Marienheide"
+  description="Gartenpflege, Baumpflege, Entrümpelung und Winterdienst in Marienheide und Umgebung. Zuverlässig, sauber und regional. Jetzt anfragen."
+  canonical="/"
+>
+
+  <!-- Hero -->
+  <section class="bg-green-50 border-b border-green-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
+      <div class="max-w-3xl">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
+          Gartenpflege, Entrümpelung & Außenservice in Marienheide und Umgebung
+        </h1>
+        <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed max-w-2xl">
+          Hecken- und Gehölzschnitt, Mäharbeiten, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten – zuverlässig, sauber und regional.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <Button href="/kontakt" variant="primary" size="large">Jetzt Anfrage senden</Button>
+          <Button href="/leistungen" variant="secondary" size="large">Leistungen ansehen</Button>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="mt-10 sm:mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-warm-gray-500">
+          {['Regional tätig', 'Persönliche Abstimmung', 'Auf Wunsch Besichtigung', 'WhatsApp-Anfrage möglich'].map(signal => (
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              {signal}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungsüberblick -->
+  <Section id="leistungen" bg="white">
+    <SectionHeading
+      title="Unsere Leistungen"
+      subtitle="Von der regelmäßigen Gartenpflege bis zur kompletten Entrümpelung – wir kümmern uns um die Arbeiten, die rund um Ihre Immobilie anfallen."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      {services.map(service => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </Section>
+
+  <!-- Warum ERNST HAUS & GARTEN -->
+  <Section bg="light">
+    <SectionHeading
+      title="Warum ERNST HAUS & GARTEN?"
+      subtitle="Bei uns bekommen Sie keine überladene Großfirma-Struktur, sondern direkte Abstimmung, verlässliche Termine und einen Ansprechpartner, der weiß, worauf es vor Ort ankommt."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+      {trustPoints.map(point => (
+        <div class="flex gap-4">
+          <div class="shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center mt-0.5">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-1">{point.title}</h3>
+            <p class="text-base text-warm-gray-600 leading-relaxed">{point.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Referenzen / Vorher-Nachher -->
+  <Section bg="white">
+    <SectionHeading
+      title="Einblicke in unsere Arbeit"
+      subtitle="Hier zeigen wir Ihnen demnächst ausgewählte Projekte aus der Region."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {['Gartenpflege', 'Entrümpelung', 'Außenarbeiten'].map(category => (
+        <div class="bg-warm-gray-100 rounded-xl aspect-[4/3] flex flex-col items-center justify-center text-center p-8">
+          <div class="w-16 h-16 rounded-full bg-warm-gray-200 flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-warm-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <p class="text-sm font-medium text-warm-gray-500">{category}</p>
+          <p class="text-xs text-warm-gray-400 mt-1">Projektbilder folgen</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <Button href="/referenzen" variant="outline">Alle Referenzen ansehen</Button>
+    </div>
+  </Section>
+
+  <!-- So läuft's ab -->
+  <Section bg="green">
+    <SectionHeading
+      title="So läuft's ab"
+      subtitle="Schicken Sie uns Ihre Anfrage gern direkt per WhatsApp oder Formular – idealerweise mit 2–3 Fotos. So können wir den Aufwand schneller einschätzen."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+      <StepCard step={1} title="Anfrage senden" description="Per Telefon, WhatsApp oder Kontaktformular. Ein paar Fotos helfen bei der Einschätzung." />
+      <StepCard step={2} title="Rückmeldung & Einschätzung" description="Wir melden uns zeitnah. Bei Bedarf kommen wir für eine Besichtigung vor Ort." />
+      <StepCard step={3} title="Termin & Umsetzung" description="Wir vereinbaren einen Termin und führen die Arbeiten zuverlässig und sauber durch." />
+    </div>
+  </Section>
+
+  <!-- Einsatzgebiet -->
+  <Section bg="white">
+    <SectionHeading
+      title="Für Marienheide und die Region"
+      subtitle="Wir sind in Marienheide und im Umkreis von etwa 30 km für private Kunden und kleinere Objekte im Einsatz."
+    />
+    <div class="flex flex-wrap justify-center gap-3">
+      {regions.map(region => (
+        <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 text-sm font-medium px-4 py-2 rounded-full border border-green-200">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          {region}
+        </span>
+      ))}
+    </div>
+    <p class="text-center text-sm text-warm-gray-500 mt-6">
+      Ihr Ort ist nicht dabei? Fragen Sie gerne an – oft sind wir auch in der weiteren Umgebung im Einsatz.
+    </p>
+  </Section>
+
+  <!-- FAQ -->
+  <Section bg="light">
+    <SectionHeading
+      title="Häufige Fragen"
+      subtitle="Die wichtigsten Antworten auf einen Blick."
+    />
+    <div class="max-w-3xl mx-auto">
+      <FAQ items={faqItems} />
+    </div>
+  </Section>
+
+  <!-- Abschluss-CTA -->
+  <section class="bg-earth-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight max-w-2xl mx-auto">
+        Sie möchten Ihren Garten wieder in Ordnung bringen oder eine Räumung anfragen?
+      </h2>
+      <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
+        Schicken Sie uns einfach Ihre Anfrage – telefonisch, per WhatsApp oder über das Formular.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+        <Button href={whatsappLink} variant="whatsapp" size="large" external ariaLabel="Anfrage per WhatsApp senden">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp starten
+        </Button>
+        <Button href={`tel:${phone.replace(/\s/g, '')}`} variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20" ariaLabel="Jetzt anrufen">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Jetzt anrufen
+        </Button>
+        <Button href="/kontakt" variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20">
+          Anfrage senden
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

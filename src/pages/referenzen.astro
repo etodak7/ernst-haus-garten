@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const categories = [
+  {
+    title: 'Gartenpflege',
+    description: 'Regelmäßige Pflege, Heckenschnitt und Mäharbeiten für private Grundstücke.',
+  },
+  {
+    title: 'Baumpflege',
+    description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen.',
+  },
+  {
+    title: 'Entrümpelung',
+    description: 'Keller, Dachböden und komplette Haushaltsauflösungen.',
+  },
+  {
+    title: 'Außenarbeiten',
+    description: 'Winterdienst, Rasenkanten und kleinere Pflasterarbeiten.',
+  },
+];
+---
+
+<BaseLayout
+  title="Referenzen – ERNST HAUS & GARTEN"
+  description="Einblicke in unsere Arbeit: Gartenpflege, Baumpflege, Entrümpelung und Außenarbeiten in Marienheide und Umgebung."
+  canonical="/referenzen"
+>
+  <!-- Breadcrumb -->
+  <div class="bg-warm-gray-50 border-b border-warm-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+      <nav class="text-sm text-warm-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-1.5">
+          <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Referenzen</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <Section bg="white" padding="large">
+    <SectionHeading
+      tag="h1"
+      title="Referenzen"
+      subtitle="Hier zeigen wir Ihnen demnächst ausgewählte Projekte aus der Region. Echte Einblicke in unsere Arbeit – ohne Fake-Bewertungen oder gestellte Fotos."
+    />
+
+    <!-- Projektkategorien -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+      {categories.map(cat => (
+        <div class="bg-warm-gray-50 rounded-xl p-6 sm:p-8">
+          <h2 class="font-semibold text-warm-gray-900 text-lg mb-2">{cat.title}</h2>
+          <p class="text-base text-warm-gray-600 leading-relaxed mb-6">{cat.description}</p>
+
+          <!-- Platzhalter für Vorher/Nachher -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-warm-gray-200 rounded-lg aspect-[4/3] flex items-center justify-center">
+              <div class="text-center">
+                <p class="text-xs text-warm-gray-400 font-medium">Vorher</p>
+              </div>
+            </div>
+            <div class="bg-warm-gray-200 rounded-lg aspect-[4/3] flex items-center justify-center">
+              <div class="text-center">
+                <p class="text-xs text-warm-gray-400 font-medium">Nachher</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-warm-gray-400 mt-3 text-center">Echte Projektbilder folgen</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Hinweis -->
+    <div class="max-w-2xl mx-auto text-center p-8 bg-green-50 rounded-xl border border-green-100">
+      <h3 class="font-semibold text-warm-gray-900 mb-2">Echte Projekteinblicke folgen</h3>
+      <p class="text-base text-warm-gray-600 leading-relaxed mb-6">
+        Wir zeigen nur echte Projekte und Ergebnisse. Sobald Referenzbilder vorliegen, finden Sie hier Beispiele aus der Region – mit Beschreibung, Leistung und Ort.
+      </p>
+      <Button href="/kontakt" variant="primary">Jetzt Projekt anfragen</Button>
+    </div>
+  </Section>
+</BaseLayout>
