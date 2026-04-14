@@ -7,13 +7,12 @@ const kategorien = [
   { key: 'alle',         label: 'Alle Projekte' },
   { key: 'gartenpflege', label: 'Gartenpflege' },
   { key: 'baumpflege',   label: 'Baumpflege' },
-  { key: 'entruempelung', label: 'Entrümpelung' },
 ];
 
 type Projekt = {
   title: string;
   description: string;
-  kategorie: 'gartenpflege' | 'baumpflege' | 'entruempelung';
+  kategorie: 'gartenpflege' | 'baumpflege';
   leistung: string;
   alt: string;
 } & (
@@ -89,24 +88,6 @@ const projekte: Projekt[] = [
     vorherNachher: true,
   },
   {
-    title: 'Kellerentrümpelung – Vorher',
-    description: 'Typischer Ausgangszustand: Keller mit alten Möbeln, Kartons und Haushaltsgegenständen – alles komplett ausgeräumt.',
-    kategorie: 'entruempelung',
-    leistung: 'Entrümpelung',
-    image: '/images/referenzen/entruempelung-keller-vorher.webp',
-    alt: 'Vollgestellter Keller vor der Entrümpelung',
-    vorherNachher: false,
-  },
-  {
-    title: 'Haushaltsauflösung – besenrein übergeben',
-    description: 'Wohnung komplett ausgeräumt und besenrein übergeben – pünktlich und unkompliziert.',
-    kategorie: 'entruempelung',
-    leistung: 'Haushaltsauflösung',
-    image: '/images/referenzen/entruempelung-wohnung-nachher.webp',
-    alt: 'Leere, besenreine Wohnung nach Haushaltsauflösung',
-    vorherNachher: false,
-  },
-  {
     title: 'Heckenschnitt – Herbstrückschnitt',
     description: 'Straßenhecke im Herbst auf Maß zurückgeschnitten. Saubere Kante, Gehweg wieder frei.',
     kategorie: 'gartenpflege',
@@ -117,13 +98,13 @@ const projekte: Projekt[] = [
     vorherNachher: true,
   },
   {
-    title: 'Hofzufahrt geräumt',
-    description: 'Hofzufahrt geräumt und Pflasterfläche wieder zugänglich gemacht.',
-    kategorie: 'entruempelung',
-    leistung: 'Räumung',
+    title: 'Hoffläche freigeschnitten',
+    description: 'Überwachsene Hoffläche vom Wildwuchs befreit und Pflaster wieder sichtbar gemacht.',
+    kategorie: 'gartenpflege',
+    leistung: 'Gartenpflege',
     imageVorher: '/images/referenzen/hofflaeche-raeumung-vor.webp',
     imageNachher: '/images/referenzen/hofflaeche-raeumung-nach.webp',
-    alt: 'Hofzufahrt vorher und nachher – geräumt und sauber',
+    alt: 'Hoffläche vorher und nachher – überwachsen und freigeschnitten',
     vorherNachher: true,
   },
   {
@@ -163,15 +144,12 @@ const leistungColors: Record<string, string> = {
   'Gehölzschnitt':     'text-green-700 bg-green-100',
   'Gartenpflege':      'text-green-700 bg-green-100',
   'Baumpflege':        'text-earth-700 bg-earth-100',
-  'Entrümpelung':      'text-earth-700 bg-earth-100',
-  'Haushaltsauflösung':'text-earth-700 bg-earth-100',
-  'Räumung':           'text-earth-700 bg-earth-100',
 };
 ---
 
 <BaseLayout
   title="Referenzen – ERNST HAUS & GARTEN"
-  description="Echte Projekte aus der Region: Heckenschnitt, Gartenpflege, Baumarbeiten und Räumungen in Marienheide und Umgebung."
+  description="Echte Projekte aus der Region: Heckenschnitt, Gartenpflege und Baumarbeiten in Marienheide und Umgebung."
   canonical="/referenzen"
 >
 

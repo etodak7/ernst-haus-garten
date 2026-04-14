@@ -12,7 +12,22 @@ const whatsappLink = 'https://wa.me/4917661331466';
 const phone = '+49 176 61331466';
 
 
-const services = [
+const houseServices = [
+  {
+    title: 'Entrümpelung & Haushaltsauflösung',
+    description: 'Keller, Dachboden, Garage oder komplette Haushaltsauflösung – diskret, besenrein und zum Festpreis.',
+    href: '/leistungen/entruempelung-haushaltsaufloesung',
+    materialIcon: 'delete_sweep',
+  },
+  {
+    title: 'Winterdienst & kleinere Außenarbeiten',
+    description: 'Schneeräumung, Streuen, Rasenkanten und kleinere Pflasterausbesserungen – zuverlässig und pünktlich.',
+    href: '/leistungen/winterdienst-aussenarbeiten',
+    materialIcon: 'ac_unit',
+  },
+];
+
+const gardenServices = [
   {
     title: 'Gartenpflege & Heckenschnitt',
     description: 'Regelmäßige Pflege, saubere Rückschnitte und ein gepflegter Außenbereich – für private Grundstücke und kleinere Objekte.',
@@ -24,18 +39,6 @@ const services = [
     description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen – fachgerecht, umsichtig und mit Blick auf Sicherheit.',
     href: '/leistungen/baumpflege-faellarbeiten',
     materialIcon: 'park',
-  },
-  {
-    title: 'Entrümpelung & Haushaltsauflösung',
-    description: 'Von Keller bis Dachboden: schnelle, diskrete und besenreine Räumung mit klarer Abstimmung.',
-    href: '/leistungen/entruempelung-haushaltsaufloesung',
-    materialIcon: 'delete_sweep',
-  },
-  {
-    title: 'Winterdienst & kleinere Außenarbeiten',
-    description: 'Schneeräumung, Rasenkanten, kleinere Pflasterausbesserungen und weitere Arbeiten im Außenbereich.',
-    href: '/leistungen/winterdienst-aussenarbeiten',
-    materialIcon: 'ac_unit',
   },
 ];
 
@@ -101,8 +104,8 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="ERNST HAUS & GARTEN – Gartenpflege, Entrümpelung & Außenservice in Marienheide"
-  description="Gartenpflege, Baumpflege, Entrümpelung und Winterdienst in Marienheide und Umgebung. Zuverlässig, sauber und regional. Jetzt anfragen."
+  title="ERNST HAUS & GARTEN – Gartenpflege, Entrümpelung & Winterdienst im Oberbergischen"
+  description="Gartenpflege, Entrümpelung, Haushaltsauflösung, Baumpflege und Winterdienst im Oberbergischen – Gummersbach, Lüdenscheid, Wipperfürth & Umgebung. Zuverlässig, diskret, regional. Jetzt anfragen."
   canonical="/"
 >
 
@@ -115,13 +118,13 @@ const faqItems = [
         <div>
           <div class="inline-flex items-center gap-2 text-sm font-medium text-green-700 mb-5">
             <span class="material-symbols-outlined text-[1.1rem]" aria-hidden="true">location_on</span>
-            Marienheide & Umgebung
+            Familienbetrieb aus Marienheide · tätig im Oberbergischen
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
-            Gartenpflege & Außenservice in Marienheide und Umgebung
+            Gartenpflege, Entrümpelung & Winterdienst &ndash; Ihr Haus &amp; Garten Partner im Oberbergischen
           </h1>
           <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed">
-            Hecken- und Gehölzschnitt, Mäharbeiten, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten – zuverlässig, sauber und regional.
+            Zwei Welten, ein Ansprechpartner: <strong class="font-semibold text-warm-gray-900">rund ums Haus</strong> &ndash; Entrümpelung, Haushaltsauflösung, Winterdienst. Und <strong class="font-semibold text-warm-gray-900">rund um den Garten</strong> &ndash; Gartenpflege, Heckenschnitt, Baumpflege. Zuverlässig, diskret und mit klarer Absprache vorab.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Button href="/kontakt" variant="primary" size="large">Jetzt anfragen</Button>
@@ -171,16 +174,37 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- Leistungsüberblick -->
+  <!-- Leistungsüberblick – zwei Säulen: Haus und Garten -->
   <Section id="leistungen" bg="white">
     <SectionHeading
       title="Unsere Leistungen"
-      subtitle="Von der regelmäßigen Gartenpflege bis zur kompletten Entrümpelung – wir kümmern uns um die Arbeiten, die rund um Ihre Immobilie anfallen."
+      subtitle="Zwei Säulen, ein Ansprechpartner: Wir übernehmen die Arbeiten rund ums Haus und rund um den Garten – ohne dass Sie mehrere Firmen koordinieren müssen."
     />
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      {services.map(({ icon: _icon, ...service }) => (
-        <ServiceCard {...service} />
-      ))}
+
+    <!-- Säule 1: Rund ums Haus -->
+    <div class="mb-12 sm:mb-14">
+      <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-earth-200">
+        <span class="material-symbols-outlined text-earth-700" style="font-size: 1.75rem;" aria-hidden="true">home</span>
+        <h3 class="text-xl sm:text-2xl font-semibold text-warm-gray-900">Rund ums Haus</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {houseServices.map(service => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+
+    <!-- Säule 2: Rund um den Garten -->
+    <div>
+      <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-green-200">
+        <span class="material-symbols-outlined text-green-700" style="font-size: 1.75rem;" aria-hidden="true">grass</span>
+        <h3 class="text-xl sm:text-2xl font-semibold text-warm-gray-900">Rund um den Garten</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {gardenServices.map(service => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
     </div>
   </Section>
 
@@ -298,10 +322,10 @@ const faqItems = [
   <section class="bg-earth-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight max-w-2xl mx-auto">
-        Sie möchten Ihren Garten wieder in Ordnung bringen oder eine Räumung anfragen?
+        Garten pflegen, Wohnung räumen oder Schnee schippen lassen?
       </h2>
       <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
-        Schicken Sie uns einfach Ihre Anfrage – telefonisch, per WhatsApp oder über das Formular.
+        Ein Ansprechpartner für alles rund ums Haus und den Garten. Schicken Sie uns einfach Ihre Anfrage – telefonisch, per WhatsApp oder über das Formular.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
         <Button href={whatsappLink} variant="whatsapp" size="large" external ariaLabel="Anfrage per WhatsApp senden">
