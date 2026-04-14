@@ -7,6 +7,9 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
   metaTitle="Baumpflege & Fällarbeiten in Marienheide – ERNST HAUS & GARTEN"
   metaDescription="Baumpflege und Fällarbeiten im zulässigen Rahmen in Marienheide und Umgebung. Fachgerechte Ausführung unter Berücksichtigung der geltenden Vorgaben."
   canonical="/leistungen/baumpflege-faellarbeiten"
+  tagline="Baumpflege in Marienheide"
+  image="/images/referenzen/baumarbeiten-collage-tr.webp"
+  imageAlt="Baumpflege: Mitarbeiter auf Leiter beim Kronenrückschnitt"
   headline="Baumpflege & Fällarbeiten"
   intro="Bäume brauchen regelmäßige Pflege – und manchmal ist auch eine Fällung notwendig. Wir übernehmen Baumpflege und Fällarbeiten im zulässigen Rahmen, immer mit Blick auf Sicherheit und unter Berücksichtigung der geltenden Vorgaben."
   items={[
@@ -17,13 +20,68 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
     'Entfernung von Schnittgut und Entsorgung',
     'Beratung vor Ort bei Bedarf',
   ]}
-  ctaText="Sie benötigen eine Einschätzung für einen Baum auf Ihrem Grundstück? Kontaktieren Sie uns – idealerweise mit einem Foto, damit wir die Situation besser beurteilen können."
+  subServices={[
+    {
+      icon: 'park',
+      title: 'Kronenrückschnitt',
+      text: 'Krone auslichten, Totholz entfernen, Tiefstämmige Äste zurückschneiden – sicher und fachgerecht.',
+    },
+    {
+      icon: 'carpenter',
+      title: 'Fällarbeiten',
+      text: 'Fällarbeiten im zulässigen Rahmen mit sorgfältiger Planung und vollständigem Abtransport des Holzes.',
+    },
+    {
+      icon: 'delete_sweep',
+      title: 'Entsorgung & Abtransport',
+      text: 'Schnittgut wird zerkleinert und mit dem Anhänger abgefahren – keine Reste auf Ihrem Grundstück.',
+    },
+  ]}
+  steps={[
+    {
+      title: 'Foto schicken',
+      text: 'Schicken Sie uns 1–2 Fotos des Baums per WhatsApp. So können wir den Aufwand oft schon vorab einschätzen.',
+    },
+    {
+      title: 'Termin vereinbaren',
+      text: 'Bei komplexeren Arbeiten schauen wir vorher kurz vorbei und stimmen alles ab.',
+    },
+    {
+      title: 'Sauber erledigt',
+      text: 'Baumarbeiten abgeschlossen, Schnittgut abtransportiert – keine Baustelle zurückgelassen.',
+    },
+  ]}
+  examples={[
+    {
+      image: '/images/referenzen/baumarbeiten-collage-tl.webp',
+      alt: 'Baumarbeiten: Carport mit Bäumen vor dem Rückschnitt',
+      label: 'Ausgangslage',
+      text: 'Bäume am Carport vor dem Rückschnitt – Sicht eingeschränkt, Äste hängen ins Dach.',
+    },
+    {
+      image: '/images/referenzen/baumarbeiten-collage-bl.webp',
+      alt: 'Bäume gefällt und am Boden zerlegt',
+      label: 'Fällarbeiten',
+      text: 'Bäume sicher gefällt und am Boden zerlegt – kontrollierte Ausführung.',
+    },
+    {
+      image: '/images/referenzen/baumarbeiten-collage-br.webp',
+      alt: 'Schnittgut wird mit Anhänger abtransportiert',
+      label: 'Entsorgung',
+      text: 'Schnittgut zerkleinert und mit Anhänger abtransportiert – nichts bleibt liegen.',
+    },
+  ]}
+  ctaText="Sie benötigen eine Einschätzung für einen Baum auf Ihrem Grundstück? Kontaktieren Sie uns – idealerweise mit einem Foto."
   ctaLabel="Baumpflege anfragen"
 >
-  <div class="mt-10 p-6 bg-earth-50 rounded-xl border border-earth-100">
-    <h3 class="font-semibold text-warm-gray-900 mb-2">Hinweis zu Baumfällungen</h3>
-    <p class="text-base text-warm-gray-600 leading-relaxed">
-      Baumfällarbeiten unterliegen je nach Standort und Baumart bestimmten Vorgaben und Genehmigungspflichten. Wir führen Fällarbeiten ausschließlich im zulässigen Rahmen durch und informieren Sie bei Bedarf über die geltenden Regelungen.
-    </p>
+  <div class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+      <div class="p-6 bg-earth-50 rounded-xl border border-earth-100 max-w-2xl">
+        <h3 class="font-semibold text-warm-gray-900 mb-2">Hinweis zu Baumfällungen</h3>
+        <p class="text-base text-warm-gray-600 leading-relaxed">
+          Baumfällarbeiten unterliegen je nach Standort und Baumart bestimmten Vorgaben und Genehmigungspflichten. Wir führen Fällarbeiten ausschließlich im zulässigen Rahmen durch und informieren Sie bei Bedarf über die geltenden Regelungen.
+        </p>
+      </div>
+    </div>
   </div>
 </ServicePageLayout>

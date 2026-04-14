@@ -6,41 +6,36 @@ import ServiceCard from '../components/ServiceCard.astro';
 import StepCard from '../components/StepCard.astro';
 import Button from '../components/Button.astro';
 import FAQ from '../components/FAQ.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 
-const whatsappLink = 'https://wa.me/49XXXXXXXXXXX';
-const phone = '+49 XXXX XXXXXXX';
+const whatsappLink = 'https://wa.me/4917661331466';
+const phone = '+49 176 61331466';
 
-const icons = {
-  garden: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
-  tree: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3L4 14h5v7h6v-7h5L12 3z"/></svg>',
-  box: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>',
-  snow: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m5-17l-5 5-5-5m10 14l-5-5-5 5M2 12h20M5 7l5 5-5 5m14-10l-5 5 5 5"/></svg>',
-};
 
 const services = [
   {
     title: 'Gartenpflege & Heckenschnitt',
     description: 'Regelmäßige Pflege, saubere Rückschnitte und ein gepflegter Außenbereich – für private Grundstücke und kleinere Objekte.',
     href: '/leistungen/gartenpflege-heckenschnitt',
-    icon: icons.garden,
+    materialIcon: 'content_cut',
   },
   {
     title: 'Baumpflege & Fällarbeiten',
     description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen – fachgerecht, umsichtig und mit Blick auf Sicherheit.',
     href: '/leistungen/baumpflege-faellarbeiten',
-    icon: icons.tree,
+    materialIcon: 'park',
   },
   {
     title: 'Entrümpelung & Haushaltsauflösung',
     description: 'Von Keller bis Dachboden: schnelle, diskrete und besenreine Räumung mit klarer Abstimmung.',
     href: '/leistungen/entruempelung-haushaltsaufloesung',
-    icon: icons.box,
+    materialIcon: 'delete_sweep',
   },
   {
     title: 'Winterdienst & kleinere Außenarbeiten',
     description: 'Schneeräumung, Rasenkanten, kleinere Pflasterausbesserungen und weitere Arbeiten im Außenbereich.',
     href: '/leistungen/winterdienst-aussenarbeiten',
-    icon: icons.snow,
+    materialIcon: 'ac_unit',
   },
 ];
 
@@ -113,30 +108,65 @@ const faqItems = [
 
   <!-- Hero -->
   <section class="bg-green-50 border-b border-green-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
-      <div class="max-w-3xl">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
-          Gartenpflege, Entrümpelung & Außenservice in Marienheide und Umgebung
-        </h1>
-        <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed max-w-2xl">
-          Hecken- und Gehölzschnitt, Mäharbeiten, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten – zuverlässig, sauber und regional.
-        </p>
-        <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <Button href="/kontakt" variant="primary" size="large">Jetzt Anfrage senden</Button>
-          <Button href="/leistungen" variant="secondary" size="large">Leistungen ansehen</Button>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-24 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
+
+        <!-- Text -->
+        <div>
+          <div class="inline-flex items-center gap-2 text-sm font-medium text-green-700 mb-5">
+            <span class="material-symbols-outlined text-[1.1rem]" aria-hidden="true">location_on</span>
+            Marienheide & Umgebung
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
+            Gartenpflege & Außenservice in Marienheide und Umgebung
+          </h1>
+          <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed">
+            Hecken- und Gehölzschnitt, Mäharbeiten, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten – zuverlässig, sauber und regional.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <Button href="/kontakt" variant="primary" size="large">Jetzt anfragen</Button>
+            <Button href="/leistungen" variant="secondary" size="large">Leistungen ansehen</Button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="mt-10 flex flex-wrap gap-5">
+            {[
+              { icon: 'location_on', label: 'Regional tätig' },
+              { icon: 'chat', label: 'WhatsApp möglich' },
+              { icon: 'person', label: 'Persönliche Abstimmung' },
+              { icon: 'visibility', label: 'Besichtigung auf Wunsch' },
+            ].map(({ icon, label }) => (
+              <span class="flex items-center gap-2 text-sm text-warm-gray-600">
+                <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">{icon}</span>
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <!-- Trust Signals -->
-        <div class="mt-10 sm:mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-warm-gray-500">
-          {['Regional tätig', 'Persönliche Abstimmung', 'Auf Wunsch Besichtigung', 'WhatsApp-Anfrage möglich'].map(signal => (
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              {signal}
-            </span>
-          ))}
+        <!-- Hero-Bild: ein großes Foto, mobil oben, Desktop rechts -->
+        <div class="relative order-first lg:order-none">
+          <div class="relative -mx-4 sm:-mx-6 lg:mx-0 lg:rounded-2xl overflow-hidden lg:shadow-lg lg:ring-1 lg:ring-warm-gray-200/50">
+            <img
+              src="/images/hero-garten.webp"
+              alt="Gepflegter Garten mit Sträuchern und Heckenelementen in Marienheide"
+              class="w-full h-64 sm:h-80 lg:h-[30rem] object-cover"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <!-- Sanfter Verlauf für besseren Badge-Kontrast -->
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+            <!-- Floating Badge unten links -->
+            <div class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 lg:bottom-6 lg:left-6 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex items-center gap-3 max-w-[calc(100%-2rem)]">
+              <span class="material-symbols-outlined text-green-600 text-[1.6rem]" aria-hidden="true">eco</span>
+              <div class="leading-tight">
+                <div class="text-sm font-semibold text-warm-gray-900">Echte Projekte</div>
+                <div class="text-xs text-warm-gray-600">aus Marienheide & Umgebung</div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -148,7 +178,7 @@ const faqItems = [
       subtitle="Von der regelmäßigen Gartenpflege bis zur kompletten Entrümpelung – wir kümmern uns um die Arbeiten, die rund um Ihre Immobilie anfallen."
     />
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      {services.map(service => (
+      {services.map(({ icon: _icon, ...service }) => (
         <ServiceCard {...service} />
       ))}
     </div>
@@ -160,18 +190,12 @@ const faqItems = [
       title="Warum ERNST HAUS & GARTEN?"
       subtitle="Bei uns bekommen Sie keine überladene Großfirma-Struktur, sondern direkte Abstimmung, verlässliche Termine und einen Ansprechpartner, der weiß, worauf es vor Ort ankommt."
     />
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
       {trustPoints.map(point => (
-        <div class="flex gap-4">
-          <div class="shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center mt-0.5">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-warm-gray-900 mb-1">{point.title}</h3>
-            <p class="text-base text-warm-gray-600 leading-relaxed">{point.text}</p>
-          </div>
+        <div class="text-center">
+          <span class="material-symbols-outlined text-green-600 mb-3 block mx-auto" style="font-size: 2.75rem;" aria-hidden="true">check_circle</span>
+          <h3 class="font-semibold text-warm-gray-900 mb-1 text-sm sm:text-base">{point.title}</h3>
+          <p class="text-sm sm:text-base text-warm-gray-600 leading-relaxed">{point.text}</p>
         </div>
       ))}
     </div>
@@ -181,18 +205,42 @@ const faqItems = [
   <Section bg="white">
     <SectionHeading
       title="Einblicke in unsere Arbeit"
-      subtitle="Hier zeigen wir Ihnen demnächst ausgewählte Projekte aus der Region."
+      subtitle="Echte Projekte aus der Region – Heckenschnitt, Gartenpflege und Gehölzarbeiten."
     />
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {['Gartenpflege', 'Entrümpelung', 'Außenarbeiten'].map(category => (
-        <div class="bg-warm-gray-100 rounded-xl aspect-[4/3] flex flex-col items-center justify-center text-center p-8">
-          <div class="w-16 h-16 rounded-full bg-warm-gray-200 flex items-center justify-center mb-4">
-            <svg class="w-8 h-8 text-warm-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      {[
+        {
+          image: '/images/referenzen/heckenschnitt-vorher-nachher-nach.webp',
+          alt: 'Sauber geschnittene Koniferen-Hecke nach Formschnitt',
+          label: 'Heckenschnitt',
+          text: 'Koniferen-Hecke auf Maß zurückgeschnitten',
+        },
+        {
+          image: '/images/referenzen/gartenpflege-wildwuchs-nach.webp',
+          alt: 'Verwilderter Garten freigeschnitten und aufgeräumt',
+          label: 'Gartenpflege',
+          text: 'Wildwuchs beseitigt, Fläche wieder nutzbar',
+        },
+        {
+          image: '/images/referenzen/baumarbeiten-collage-tr.webp',
+          alt: 'Baumarbeiten: Mitarbeiter beim Kronenrückschnitt auf der Leiter',
+          label: 'Baumarbeiten',
+          text: 'Kronenrückschnitt, sicher von der Leiter',
+        },
+      ].map(item => (
+        <div class="flex flex-col rounded-xl overflow-hidden border border-warm-gray-200 bg-white">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.alt}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
-          <p class="text-sm font-medium text-warm-gray-500">{category}</p>
-          <p class="text-xs text-warm-gray-400 mt-1">Projektbilder folgen</p>
+          <div class="bg-warm-gray-50 p-4 flex-1">
+            <p class="font-medium text-warm-gray-900 text-sm">{item.label}</p>
+            <p class="text-sm text-warm-gray-500">{item.text}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -208,9 +256,9 @@ const faqItems = [
       subtitle="Schicken Sie uns Ihre Anfrage gern direkt per WhatsApp oder Formular – idealerweise mit 2–3 Fotos. So können wir den Aufwand schneller einschätzen."
     />
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
-      <StepCard step={1} title="Anfrage senden" description="Per Telefon, WhatsApp oder Kontaktformular. Ein paar Fotos helfen bei der Einschätzung." />
-      <StepCard step={2} title="Rückmeldung & Einschätzung" description="Wir melden uns zeitnah. Bei Bedarf kommen wir für eine Besichtigung vor Ort." />
-      <StepCard step={3} title="Termin & Umsetzung" description="Wir vereinbaren einen Termin und führen die Arbeiten zuverlässig und sauber durch." />
+      <StepCard step={1} title="Anfrage senden" description="Per Telefon, WhatsApp oder Kontaktformular. Ein paar Fotos helfen bei der Einschätzung." materialIcon="contact_support" />
+      <StepCard step={2} title="Rückmeldung & Einschätzung" description="Wir melden uns zeitnah. Bei Bedarf kommen wir für eine Besichtigung vor Ort." materialIcon="search" />
+      <StepCard step={3} title="Termin & Umsetzung" description="Wir vereinbaren einen Termin und führen die Arbeiten zuverlässig und sauber durch." materialIcon="construction" />
     </div>
   </Section>
 

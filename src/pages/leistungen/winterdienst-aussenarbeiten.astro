@@ -7,8 +7,11 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
   metaTitle="Winterdienst & Außenarbeiten in Marienheide – ERNST HAUS & GARTEN"
   metaDescription="Winterdienst, Schneeräumung und kleinere Außenarbeiten in Marienheide und Umgebung. Rasenkanten, Pflasterausbesserungen und mehr."
   canonical="/leistungen/winterdienst-aussenarbeiten"
+  tagline="Winterdienst in Marienheide"
+  image="/images/leistungen/winterdienst.webp"
+  imageAlt="Geräumter Gehweg im Winter – Winterdienst in Marienheide"
   headline="Winterdienst & kleinere Außenarbeiten"
-  intro="Vom Winterdienst bis zu kleineren Pflasterarbeiten – wir übernehmen praktische Außenarbeiten, die Ihre Immobilie in Schuss halten. Zuverlässig, regelmäßig oder bei Bedarf."
+  intro="Vom Winterdienst bis zu kleineren Pflasterarbeiten – wir übernehmen praktische Außenarbeiten, die Ihre Immobilie in Schuss halten. Zuverlässig, regelmäßig oder bei Bedarf – damit Sie sich im Winter um nichts kümmern müssen."
   items={[
     'Winterdienst und Schneeräumung',
     'Streudienst für private Wege und Zufahrten',
@@ -18,13 +21,62 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
     'Kleinere Instandsetzungsarbeiten',
     'Saisonale Arbeiten nach Bedarf',
   ]}
+  subServices={[
+    {
+      icon: 'ac_unit',
+      title: 'Winterdienst',
+      text: 'Schneeräumung und Streudienst für Wege, Zufahrten und Eingangsbereiche – zuverlässig und pünktlich.',
+    },
+    {
+      icon: 'construction',
+      title: 'Pflaster & Platten',
+      text: 'Kleinere Pflaster- und Plattenarbeiten, abgesunkene Bereiche ausgebessert und neu verlegt.',
+    },
+    {
+      icon: 'grass',
+      title: 'Rasenkanten & Außenpflege',
+      text: 'Rasenkanten setzen und pflegen, Außenbereiche instand halten – alles aus einer Hand.',
+    },
+  ]}
+  steps={[
+    {
+      title: 'Bedarf mitteilen',
+      text: 'Kurz anrufen oder schreiben – ob einmalig oder als Saisonvertrag, wir finden das passende Modell.',
+    },
+    {
+      title: 'Abstimmung & Termin',
+      text: 'Für Winterdienst: Absprache vor der Saison. Für Außenarbeiten: Termin nach Ihrem Wunsch.',
+    },
+    {
+      title: 'Erledigt, wann gebraucht',
+      text: 'Beim Winterdienst kommen wir ohne extra Anruf – Sie müssen sich um nichts kümmern.',
+    },
+  ]}
+  examples={[
+    {
+      image: '/images/leistungen/winterdienst.webp',
+      alt: 'Geräumter Gehweg nach Winterdienst-Einsatz',
+      label: 'Winterdienst',
+      text: 'Weg und Zufahrt nach Schneeeinsatz geräumt und gestreut – sicher begehbar.',
+    },
+    {
+      image: '/images/referenzen/hofzufahrt-vorher-nachher-nach.webp',
+      alt: 'Kopfsteinpflaster-Zufahrt freigeschnitten und gepflegt',
+      label: 'Außenpflege',
+      text: 'Überwucherte Pflasterzufahrt freigeschnitten – Fläche wieder nutzbar.',
+    },
+  ]}
   ctaText="Sie benötigen einen zuverlässigen Winterdienst oder haben kleinere Arbeiten im Außenbereich? Sprechen Sie uns an."
   ctaLabel="Außenservice anfragen"
 >
-  <div class="mt-10 p-6 bg-earth-50 rounded-xl border border-earth-100">
-    <h3 class="font-semibold text-warm-gray-900 mb-2">Regelmäßiger Winterdienst</h3>
-    <p class="text-base text-warm-gray-600 leading-relaxed">
-      Wir bieten Winterdienst auch als regelmäßige Vereinbarung für die gesamte Saison an. So müssen Sie sich im Winter um nichts kümmern.
-    </p>
+  <div class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+      <div class="p-6 bg-earth-50 rounded-xl border border-earth-100 max-w-2xl">
+        <h3 class="font-semibold text-warm-gray-900 mb-2">Regelmäßiger Winterdienst</h3>
+        <p class="text-base text-warm-gray-600 leading-relaxed">
+          Wir bieten Winterdienst auch als regelmäßige Vereinbarung für die gesamte Saison an. So müssen Sie sich im Winter um nichts kümmern.
+        </p>
+      </div>
+    </div>
   </div>
 </ServicePageLayout>

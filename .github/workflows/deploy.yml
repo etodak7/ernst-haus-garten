@@ -1,0 +1,56 @@
+name: Deploy to IONOS
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ionos
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASS: ${{ secrets.SFTP_PASS }}
+          SFTP_REMOTE_DIR: ${{ secrets.SFTP_REMOTE_DIR }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SFTP_HOST:-}" ] || [ -z "${SFTP_USER:-}" ] || [ -z "${SFTP_PASS:-}" ]; then
+            echo "Fehlende SFTP-Secrets — bitte in den Repo-Settings hinterlegen:"
+            echo "  SFTP_HOST, SFTP_USER, SFTP_PASS, SFTP_REMOTE_DIR"
+            exit 1
+          fi
+          REMOTE_DIR="${SFTP_REMOTE_DIR:-/}"
+          lftp -c "
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          set net:timeout 30
+          set net:reconnect-interval-base 5
+          open -u '${SFTP_USER}','${SFTP_PASS}' sftp://${SFTP_HOST}
+          mirror -R --verbose --parallel=4 --exclude-glob .git* ./dist/ ${REMOTE_DIR}
+          bye
+          "

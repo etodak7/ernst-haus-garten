@@ -7,8 +7,11 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
   metaTitle="Gartenpflege & Heckenschnitt in Marienheide – ERNST HAUS & GARTEN"
   metaDescription="Regelmäßige Gartenpflege, Mäharbeiten und Heckenschnitt in Marienheide und Umgebung. Gepflegte Außenbereiche für private Grundstücke. Jetzt anfragen."
   canonical="/leistungen/gartenpflege-heckenschnitt"
+  tagline="Gartenpflege in Marienheide"
+  image="/images/referenzen/heckenschnitt-strasse-nach.webp"
+  imageAlt="Frisch geschnittene Straßenhecke in Marienheide"
   headline="Gartenpflege & Heckenschnitt"
-  intro="Ein gepflegter Garten macht Freude – aber auch Arbeit. Wir übernehmen die regelmäßige Pflege Ihres Außenbereichs, damit Sie sich um nichts kümmern müssen. Ob saisonale Mäharbeiten, saubere Heckenschnitte oder Gehölzpflege: Wir arbeiten gründlich, zuverlässig und auf Ihre Wünsche abgestimmt."
+  intro="Ein gepflegter Garten macht Freude – aber auch Arbeit. Wir übernehmen die regelmäßige Pflege Ihres Außenbereichs, damit Sie sich um nichts kümmern müssen. Ob saisonale Mäharbeiten, saubere Heckenschnitte oder Gehölzpflege: gründlich, zuverlässig und auf Ihre Wünsche abgestimmt."
   items={[
     'Regelmäßige Mäharbeiten und Rasenpflege',
     'Hecken-Rückschnitt und Formschnitt',
@@ -18,13 +21,68 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
     'Saisonale Gartenpflege (Frühjahr, Sommer, Herbst)',
     'Laubbeseitigung und Herbstarbeiten',
   ]}
-  ctaText="Sie möchten Ihren Garten regelmäßig gepflegt wissen oder brauchen Unterstützung bei saisonalen Arbeiten? Schicken Sie uns gerne Fotos per WhatsApp oder nutzen Sie unser Kontaktformular."
+  subServices={[
+    {
+      icon: 'content_cut',
+      title: 'Heckenschnitt & Formschnitt',
+      text: 'Hecken gerade, sauber und auf Maß – ob Koniferen, Buchsbaum oder Naturhecke. Schnittgut wird komplett entfernt.',
+    },
+    {
+      icon: 'grass',
+      title: 'Rasenpflege & Mäharbeiten',
+      text: 'Regelmäßiges Mähen, Rasenkantenpflege und Entfernen von Wildwuchs für einen gepflegten Rasen.',
+    },
+    {
+      icon: 'park',
+      title: 'Gehölze & Sträucher',
+      text: 'Rückschnitt von Sträuchern, Kletterpflanzen und Ziergehölzen – form- und pflegegerecht.',
+    },
+  ]}
+  steps={[
+    {
+      title: 'Kontakt aufnehmen',
+      text: 'Foto per WhatsApp schicken oder kurz anrufen – wir schauen uns die Situation an und geben eine schnelle Einschätzung.',
+    },
+    {
+      title: 'Termin abstimmen',
+      text: 'Wir einigen uns auf einen Termin, der für Sie passt. Bei Bedarf schauen wir vorher kurz vorbei.',
+    },
+    {
+      title: 'Arbeit erledigt',
+      text: 'Sauber ausgeführt, Schnittgut entfernt – Sie kommen nach Hause und alles ist gemacht.',
+    },
+  ]}
+  examples={[
+    {
+      image: '/images/referenzen/heckenschnitt-strasse-nach.webp',
+      alt: 'Straßenhecke nach sauberem Rückschnitt in Marienheide',
+      label: 'Heckenschnitt',
+      text: 'Straßenhecke auf Maß zurückgeschnitten – saubere Kante, Gehweg wieder frei.',
+    },
+    {
+      image: '/images/referenzen/heckenschnitt-eingang-nach.webp',
+      alt: 'Heckenschnitt am Eingangsbereich nach Rückschnitt',
+      label: 'Heckenschnitt',
+      text: 'Überwachsene Hecke am Treppenaufgang zurückgeschnitten – Eingang wieder frei.',
+    },
+    {
+      image: '/images/referenzen/gartenpflege-teich-nach.webp',
+      alt: 'Teichbereich freigeschnitten und gepflegt',
+      label: 'Gartenpflege',
+      text: 'Zugewachsener Teich- und Gartenbereich freigeschnitten und wieder gepflegt.',
+    },
+  ]}
+  ctaText="Schicken Sie uns gerne Fotos per WhatsApp oder nutzen Sie unser Kontaktformular."
   ctaLabel="Gartenpflege anfragen"
 >
-  <div class="mt-10 p-6 bg-green-50 rounded-xl border border-green-100">
-    <h3 class="font-semibold text-warm-gray-900 mb-2">Regelmäßige Pflege möglich</h3>
-    <p class="text-base text-warm-gray-600 leading-relaxed">
-      Wir bieten regelmäßige Gartenpflege in verschiedenen Intervallen an – wöchentlich, zweiwöchentlich oder nach saisonalem Bedarf. Sprechen Sie uns auf einen passenden Rhythmus an.
-    </p>
+  <div class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+      <div class="p-6 bg-green-50 rounded-xl border border-green-100 max-w-2xl">
+        <h3 class="font-semibold text-warm-gray-900 mb-2">Regelmäßige Pflege möglich</h3>
+        <p class="text-base text-warm-gray-600 leading-relaxed">
+          Wir bieten regelmäßige Gartenpflege in verschiedenen Intervallen an – wöchentlich, zweiwöchentlich oder nach saisonalem Bedarf. Sprechen Sie uns auf einen passenden Rhythmus an.
+        </p>
+      </div>
+    </div>
   </div>
 </ServicePageLayout>

@@ -1,0 +1,96 @@
+---
+interface Props {
+  imageVorher: string;
+  imageNachher: string;
+  alt: string;
+  loading?: 'lazy' | 'eager';
+  /** e.g. "4/3" — forces fixed aspect ratio with object-cover. Omit for natural image height. */
+  aspectRatio?: string;
+}
+
+const { imageVorher, imageNachher, alt, loading = 'lazy', aspectRatio } = Astro.props;
+const wrapperStyle = aspectRatio
+  ? `--ba-pos: 50%; aspect-ratio: ${aspectRatio};`
+  : '--ba-pos: 50%;';
+const nachherClass = aspectRatio
+  ? 'absolute inset-0 w-full h-full object-cover pointer-events-none'
+  : 'w-full h-auto block pointer-events-none';
+---
+
+<div
+  class:list={[
+    'ba-slider relative w-full select-none touch-none cursor-ew-resize',
+    aspectRatio && 'overflow-hidden',
+  ]}
+  data-ba-slider
+  style={wrapperStyle}
+>
+  <img
+    src={imageNachher}
+    alt={alt + ' – nachher'}
+    class={nachherClass}
+    loading={loading}
+    draggable="false"
+  />
+  <img
+    src={imageVorher}
+    alt={alt + ' – vorher'}
+    class="ba-before absolute inset-0 w-full h-full object-cover pointer-events-none"
+    style="clip-path: inset(0 calc(100% - var(--ba-pos)) 0 0);"
+    loading={loading}
+    draggable="false"
+  />
+  <div
+    class="ba-handle absolute top-0 bottom-0 w-0.5 bg-white pointer-events-none"
+    style="left: var(--ba-pos); box-shadow: 0 0 0 1px rgba(0,0,0,0.2);"
+  >
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center ring-1 ring-warm-gray-200">
+      <span class="material-symbols-outlined text-warm-gray-700 text-[1.25rem] rotate-90" aria-hidden="true">unfold_more</span>
+    </div>
+  </div>
+  <div class="absolute top-3 left-3 bg-black/60 text-white text-[0.65rem] font-semibold uppercase tracking-wider px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+    Vorher
+  </div>
+  <div class="absolute top-3 right-3 bg-green-600/90 text-white text-[0.65rem] font-semibold uppercase tracking-wider px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+    Nachher
+  </div>
+</div>
+
+<script>
+  const init = () => {
+    const sliders = document.querySelectorAll<HTMLElement>('[data-ba-slider]:not([data-ba-init])');
+    sliders.forEach(slider => {
+      slider.setAttribute('data-ba-init', '');
+      let dragging = false;
+
+      const setPos = (clientX: number) => {
+        const rect = slider.getBoundingClientRect();
+        const x = Math.max(0, Math.min(rect.width, clientX - rect.left));
+        const pct = (x / rect.width) * 100;
+        slider.style.setProperty('--ba-pos', `${pct}%`);
+      };
+
+      slider.addEventListener('pointerdown', (e: PointerEvent) => {
+        dragging = true;
+        slider.setPointerCapture(e.pointerId);
+        setPos(e.clientX);
+      });
+      slider.addEventListener('pointermove', (e: PointerEvent) => {
+        if (!dragging) return;
+        setPos(e.clientX);
+      });
+      const release = (e: PointerEvent) => {
+        dragging = false;
+        try { slider.releasePointerCapture(e.pointerId); } catch {}
+      };
+      slider.addEventListener('pointerup', release);
+      slider.addEventListener('pointercancel', release);
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

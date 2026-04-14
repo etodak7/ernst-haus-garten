@@ -1,34 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 
-const categories = [
+const kategorien = [
+  { key: 'alle',         label: 'Alle Projekte' },
+  { key: 'gartenpflege', label: 'Gartenpflege' },
+  { key: 'baumpflege',   label: 'Baumpflege' },
+  { key: 'entruempelung', label: 'Entrümpelung' },
+];
+
+type Projekt = {
+  title: string;
+  description: string;
+  kategorie: 'gartenpflege' | 'baumpflege' | 'entruempelung';
+  leistung: string;
+  alt: string;
+} & (
+  | { vorherNachher: false; image: string }
+  | { vorherNachher: true; imageVorher: string; imageNachher: string }
+);
+
+const projekte: Projekt[] = [
   {
-    title: 'Gartenpflege',
-    description: 'Regelmäßige Pflege, Heckenschnitt und Mäharbeiten für private Grundstücke.',
+    title: 'Heckenschnitt – Straßenseite',
+    description: 'Koniferen-Hecke an der Straße sauber auf Maß zurückgeschnitten. Schnittgut komplett entfernt.',
+    kategorie: 'gartenpflege',
+    leistung: 'Heckenschnitt',
+    imageVorher: '/images/referenzen/heckenschnitt-strasse-vor.webp',
+    imageNachher: '/images/referenzen/heckenschnitt-strasse-nach.webp',
+    alt: 'Straßenhecke vorher und nachher in Marienheide',
+    vorherNachher: true,
   },
   {
-    title: 'Baumpflege',
-    description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen.',
+    title: 'Carport vor dem Rückschnitt',
+    description: 'Ausgangslage am Carport: Bäume hängen ins Dach, Sicht eingeschränkt.',
+    kategorie: 'baumpflege',
+    leistung: 'Baumpflege',
+    image: '/images/referenzen/baumarbeiten-collage-tl.webp',
+    alt: 'Carport mit Bäumen vor dem Rückschnitt',
+    vorherNachher: false,
   },
   {
-    title: 'Entrümpelung',
-    description: 'Keller, Dachböden und komplette Haushaltsauflösungen.',
+    title: 'Kronenrückschnitt auf der Leiter',
+    description: 'Mitarbeiter beim Kronenrückschnitt – sichere Ausführung von der Leiter aus.',
+    kategorie: 'baumpflege',
+    leistung: 'Baumpflege',
+    image: '/images/referenzen/baumarbeiten-collage-tr.webp',
+    alt: 'Kronenrückschnitt von der Leiter aus',
+    vorherNachher: false,
   },
   {
-    title: 'Außenarbeiten',
-    description: 'Winterdienst, Rasenkanten und kleinere Pflasterarbeiten.',
+    title: 'Bäume gefällt und zerlegt',
+    description: 'Bäume sicher gefällt und am Boden in transportgerechte Stücke zerlegt.',
+    kategorie: 'baumpflege',
+    leistung: 'Baumpflege',
+    image: '/images/referenzen/baumarbeiten-collage-bl.webp',
+    alt: 'Gefällte Bäume am Boden zerlegt',
+    vorherNachher: false,
+  },
+  {
+    title: 'Schnittgut-Abtransport mit Anhänger',
+    description: 'Schnittgut zerkleinert und vollständig mit dem Anhänger abtransportiert – nichts bleibt liegen.',
+    kategorie: 'baumpflege',
+    leistung: 'Baumpflege',
+    image: '/images/referenzen/baumarbeiten-collage-br.webp',
+    alt: 'Schnittgut wird mit Anhänger abtransportiert',
+    vorherNachher: false,
+  },
+  {
+    title: 'Gartenpflege – Teichbereich',
+    description: 'Zugewachsener Teich- und Gartenbereich freigeschnitten und wieder gepflegt.',
+    kategorie: 'gartenpflege',
+    leistung: 'Gartenpflege',
+    imageVorher: '/images/referenzen/gartenpflege-teich-vor.webp',
+    imageNachher: '/images/referenzen/gartenpflege-teich-nach.webp',
+    alt: 'Teichbereich vorher und nachher: freigeschnitten und gepflegt',
+    vorherNachher: true,
+  },
+  {
+    title: 'Heckenschnitt am Eingang',
+    description: 'Stark überwachsene Hecke am Treppenaufgang zurückgeschnitten. Eingang wieder frei und sicher begehbar.',
+    kategorie: 'gartenpflege',
+    leistung: 'Heckenschnitt',
+    imageVorher: '/images/referenzen/heckenschnitt-eingang-vor.webp',
+    imageNachher: '/images/referenzen/heckenschnitt-eingang-nach.webp',
+    alt: 'Heckenschnitt am Eingangsbereich vorher und nachher',
+    vorherNachher: true,
+  },
+  {
+    title: 'Kellerentrümpelung – Vorher',
+    description: 'Typischer Ausgangszustand: Keller mit alten Möbeln, Kartons und Haushaltsgegenständen – alles komplett ausgeräumt.',
+    kategorie: 'entruempelung',
+    leistung: 'Entrümpelung',
+    image: '/images/referenzen/entruempelung-keller-vorher.webp',
+    alt: 'Vollgestellter Keller vor der Entrümpelung',
+    vorherNachher: false,
+  },
+  {
+    title: 'Haushaltsauflösung – besenrein übergeben',
+    description: 'Wohnung komplett ausgeräumt und besenrein übergeben – pünktlich und unkompliziert.',
+    kategorie: 'entruempelung',
+    leistung: 'Haushaltsauflösung',
+    image: '/images/referenzen/entruempelung-wohnung-nachher.webp',
+    alt: 'Leere, besenreine Wohnung nach Haushaltsauflösung',
+    vorherNachher: false,
+  },
+  {
+    title: 'Heckenschnitt – Herbstrückschnitt',
+    description: 'Straßenhecke im Herbst auf Maß zurückgeschnitten. Saubere Kante, Gehweg wieder frei.',
+    kategorie: 'gartenpflege',
+    leistung: 'Heckenschnitt',
+    imageVorher: '/images/referenzen/heckenschnitt-herbst-vor.webp',
+    imageNachher: '/images/referenzen/heckenschnitt-herbst-nach.webp',
+    alt: 'Straßenhecke Herbstrückschnitt vorher und nachher',
+    vorherNachher: true,
+  },
+  {
+    title: 'Hofzufahrt geräumt',
+    description: 'Hofzufahrt geräumt und Pflasterfläche wieder zugänglich gemacht.',
+    kategorie: 'entruempelung',
+    leistung: 'Räumung',
+    imageVorher: '/images/referenzen/hofflaeche-raeumung-vor.webp',
+    imageNachher: '/images/referenzen/hofflaeche-raeumung-nach.webp',
+    alt: 'Hofzufahrt vorher und nachher – geräumt und sauber',
+    vorherNachher: true,
+  },
+  {
+    title: 'Kopfsteinpflaster freigeschnitten',
+    description: 'Überwuchertes Kopfsteinpflaster entlang der Zufahrt freigeschnitten und wieder nutzbar gemacht.',
+    kategorie: 'gartenpflege',
+    leistung: 'Gartenpflege',
+    imageVorher: '/images/referenzen/hofzufahrt-vorher-nachher-vor.webp',
+    imageNachher: '/images/referenzen/hofzufahrt-vorher-nachher-nach.webp',
+    alt: 'Hofzufahrt Kopfsteinpflaster vorher und nachher',
+    vorherNachher: true,
+  },
+  {
+    title: 'Koniferen-Formschnitt',
+    description: 'Formschnitt an einer Koniferen-Hecke – sauber auf Höhe gebracht, Schnittgut entsorgt.',
+    kategorie: 'gartenpflege',
+    leistung: 'Heckenschnitt',
+    imageVorher: '/images/referenzen/heckenschnitt-vorher-nachher-vor.webp',
+    imageNachher: '/images/referenzen/heckenschnitt-vorher-nachher-nach.webp',
+    alt: 'Koniferen-Hecke vorher und nachher nach Formschnitt',
+    vorherNachher: true,
+  },
+  {
+    title: 'Wildwuchs beseitigt',
+    description: 'Verwilderter Garten freigeschnitten und aufgeräumt. Sträucher zurückgeschnitten, Fläche wieder nutzbar.',
+    kategorie: 'gartenpflege',
+    leistung: 'Gartenpflege',
+    imageVorher: '/images/referenzen/gartenpflege-wildwuchs-vor.webp',
+    imageNachher: '/images/referenzen/gartenpflege-wildwuchs-nach.webp',
+    alt: 'Verwilderter Garten vorher und nachher',
+    vorherNachher: true,
   },
 ];
+
+const leistungColors: Record<string, string> = {
+  'Heckenschnitt':     'text-green-700 bg-green-100',
+  'Gehölzschnitt':     'text-green-700 bg-green-100',
+  'Gartenpflege':      'text-green-700 bg-green-100',
+  'Baumpflege':        'text-earth-700 bg-earth-100',
+  'Entrümpelung':      'text-earth-700 bg-earth-100',
+  'Haushaltsauflösung':'text-earth-700 bg-earth-100',
+  'Räumung':           'text-earth-700 bg-earth-100',
+};
 ---
 
 <BaseLayout
   title="Referenzen – ERNST HAUS & GARTEN"
-  description="Einblicke in unsere Arbeit: Gartenpflege, Baumpflege, Entrümpelung und Außenarbeiten in Marienheide und Umgebung."
+  description="Echte Projekte aus der Region: Heckenschnitt, Gartenpflege, Baumarbeiten und Räumungen in Marienheide und Umgebung."
   canonical="/referenzen"
 >
+
   <!-- Breadcrumb -->
   <div class="bg-warm-gray-50 border-b border-warm-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
@@ -42,45 +188,117 @@ const categories = [
     </div>
   </div>
 
-  <Section bg="white" padding="large">
-    <SectionHeading
-      tag="h1"
-      title="Referenzen"
-      subtitle="Hier zeigen wir Ihnen demnächst ausgewählte Projekte aus der Region. Echte Einblicke in unsere Arbeit – ohne Fake-Bewertungen oder gestellte Fotos."
-    />
+  <!-- Header -->
+  <section class="bg-warm-white border-b border-warm-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <div class="inline-flex items-center gap-2 text-sm font-medium text-green-700 bg-green-50 px-3 py-1.5 rounded-full mb-5 border border-green-200">
+        <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">photo_library</span>
+        Echte Projekte aus der Region
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-warm-gray-900 leading-tight">Unsere Referenzen</h1>
+      <p class="mt-3 text-base sm:text-lg text-warm-gray-600 max-w-2xl leading-relaxed">
+        Keine gestellten Fotos, keine erfundenen Bewertungen. Hier sehen Sie echte Projekte – so wie sie in der Region ausgesehen haben.
+      </p>
+    </div>
+  </section>
 
-    <!-- Projektkategorien -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-      {categories.map(cat => (
-        <div class="bg-warm-gray-50 rounded-xl p-6 sm:p-8">
-          <h2 class="font-semibold text-warm-gray-900 text-lg mb-2">{cat.title}</h2>
-          <p class="text-base text-warm-gray-600 leading-relaxed mb-6">{cat.description}</p>
+  <!-- Filter + Grid -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
 
-          <!-- Platzhalter für Vorher/Nachher -->
-          <div class="grid grid-cols-2 gap-3">
-            <div class="bg-warm-gray-200 rounded-lg aspect-[4/3] flex items-center justify-center">
-              <div class="text-center">
-                <p class="text-xs text-warm-gray-400 font-medium">Vorher</p>
+      <!-- Kategorie-Filter -->
+      <div class="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Projekte filtern">
+        {kategorien.map((k, i) => (
+          <button
+            data-filter={k.key}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            class:list={[
+              'filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border',
+              i === 0
+                ? 'bg-green-600 text-white border-green-600'
+                : 'bg-white text-warm-gray-600 border-warm-gray-300 hover:border-green-400 hover:text-green-700',
+            ]}
+          >
+            {k.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Masonry-Grid (natürliche Bildhöhen) -->
+      <div id="projekte-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-5">
+        {projekte.map(p => (
+          <div
+            class="projekt-card break-inside-avoid mb-5 rounded-xl overflow-hidden border border-warm-gray-200 bg-white"
+            data-kategorie={p.kategorie}
+          >
+            {p.vorherNachher ? (
+              <BeforeAfterSlider
+                imageVorher={p.imageVorher}
+                imageNachher={p.imageNachher}
+                alt={p.alt}
+              />
+            ) : (
+              <div class="relative">
+                <img
+                  src={p.image}
+                  alt={p.alt}
+                  class="w-full h-auto block"
+                  loading="lazy"
+                />
               </div>
-            </div>
-            <div class="bg-warm-gray-200 rounded-lg aspect-[4/3] flex items-center justify-center">
-              <div class="text-center">
-                <p class="text-xs text-warm-gray-400 font-medium">Nachher</p>
-              </div>
+            )}
+            <!-- Text -->
+            <div class="p-4 sm:p-5">
+              <span class:list={[
+                'inline-block text-xs font-medium px-2.5 py-1 rounded-full mb-3',
+                leistungColors[p.leistung] ?? 'text-warm-gray-600 bg-warm-gray-100',
+              ]}>
+                {p.leistung}
+              </span>
+              <h2 class="font-semibold text-warm-gray-900 text-base mb-1.5">{p.title}</h2>
+              <p class="text-sm text-warm-gray-600 leading-relaxed">{p.description}</p>
             </div>
           </div>
-          <p class="text-xs text-warm-gray-400 mt-3 text-center">Echte Projektbilder folgen</p>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
 
-    <!-- Hinweis -->
-    <div class="max-w-2xl mx-auto text-center p-8 bg-green-50 rounded-xl border border-green-100">
-      <h3 class="font-semibold text-warm-gray-900 mb-2">Echte Projekteinblicke folgen</h3>
-      <p class="text-base text-warm-gray-600 leading-relaxed mb-6">
-        Wir zeigen nur echte Projekte und Ergebnisse. Sobald Referenzbilder vorliegen, finden Sie hier Beispiele aus der Region – mit Beschreibung, Leistung und Ort.
-      </p>
-      <Button href="/kontakt" variant="primary">Jetzt Projekt anfragen</Button>
     </div>
-  </Section>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bg-green-50 border-t border-green-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-14 text-center">
+      <h3 class="text-xl sm:text-2xl font-bold text-warm-gray-900 mb-3">Ihr Projekt als nächstes?</h3>
+      <p class="text-base text-warm-gray-600 leading-relaxed mb-6 max-w-xl mx-auto">
+        Schicken Sie uns Fotos per WhatsApp oder Formular – wir melden uns mit einer schnellen Einschätzung.
+      </p>
+      <Button href="/kontakt" variant="primary" size="large">Jetzt Projekt anfragen</Button>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.projekt-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-green-600', 'text-white', 'border-green-600');
+        b.classList.add('bg-white', 'text-warm-gray-600', 'border-warm-gray-300');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('bg-green-600', 'text-white', 'border-green-600');
+      btn.classList.remove('bg-white', 'text-warm-gray-600', 'border-warm-gray-300');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.dataset.filter;
+      items.forEach(item => {
+        const show = filter === 'alle' || item.dataset.kategorie === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
