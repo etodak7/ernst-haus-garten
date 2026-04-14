@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, description, ogImage = '/images/og-default.webp', canonical } = Astro.props;
-const siteUrl = 'https://ernst-haus-garten.de';
+const siteUrl = 'https://ernst-hausgarten.de';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
