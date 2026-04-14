@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const whatsappLink = 'https://wa.me/4917661331466';
+const phone = '+49 176 61331466';
+const email = 'info@ernst-hausgarten.de';
+
+const targetGroups = [
+  {
+    icon: 'home_work',
+    title: 'Hausverwaltungen',
+    text: 'Regelmäßige Grünpflege auf Gemeinschaftsflächen, zuverlässiger Winterdienst auf Wegen und Zufahrten, besenreine Entrümpelung zwischen Mietwechseln. Planbar über Monatspauschale oder als Einzelauftrag.',
+    typical: 'Typisch: Rasen · Hecken · Winterdienst · Übergaberäumung',
+  },
+  {
+    icon: 'handshake',
+    title: 'Immobilienmakler',
+    text: 'Objekt-Aufbereitung vor Verkauf oder Besichtigung: Entrümpelung leerstehender Wohnungen, Garten in Ordnung bringen, überwuchertes Pflaster freilegen. Schnell, diskret, mit Blick auf den Verkaufstermin.',
+    typical: 'Typisch: Haushaltsauflösung · Gartenaufräumung · Außenfrische',
+  },
+  {
+    icon: 'storefront',
+    title: 'Praxen, Apotheken & Geschäfte',
+    text: 'Der Eingangsbereich Ihrer Praxis oder Ihres Ladens ist das erste, was Kunden sehen. Wir halten Pflanzen, Rasen, Wege und im Winter den Schnee im Griff – meistens ohne dass Sie es merken.',
+    typical: 'Typisch: Eingangspflege · Rasenmähen · Winterdienst',
+  },
+  {
+    icon: 'construction',
+    title: 'Handwerk & kleine Firmen',
+    text: 'Firmengelände, Parkplätze, Betriebshöfe – oft schwer nebenbei zu pflegen. Wir übernehmen das verlässlich zum Festpreis oder als monatliche Pauschale, ohne dass Sie sich darum kümmern müssen.',
+    typical: 'Typisch: Rasenpflege · Heckenschnitt · Winterdienst · Hofpflege',
+  },
+  {
+    icon: 'account_balance',
+    title: 'Nachlass & Erben',
+    text: 'Haushaltsauflösungen nach einem Todesfall sind emotional und organisatorisch belastend. Wir räumen diskret, mit Respekt vor den Verstorbenen und den Angehörigen, inkl. Entsorgungsnachweis und fairer Wertanrechnung.',
+    typical: 'Typisch: Haushaltsauflösung · diskrete Räumung · Wertanrechnung',
+  },
+];
+
+const processSteps = [
+  {
+    num: 1,
+    icon: 'call',
+    title: 'Kontakt aufnehmen',
+    text: 'Anruf, WhatsApp oder E-Mail – direkt an Alex. Keine Hierarchie, keine Ticket-Nummer, keine Warteschleife.',
+  },
+  {
+    num: 2,
+    icon: 'search',
+    title: 'Bedarf klären',
+    text: 'Wir schauen uns an, was zu tun ist &ndash; per Fotos, kurzem Telefonat oder vor Ort. Dann gibt\'s einen Festpreis oder eine Monatspauschale.',
+  },
+  {
+    num: 3,
+    icon: 'construction',
+    title: 'Umsetzung & Rechnung',
+    text: 'Arbeit wird pünktlich und wie besprochen erledigt. Rechnung auf Firma mit Leistungsbeschreibung und allem, was Sie brauchen.',
+  },
+];
+
+const differentiators = [
+  {
+    icon: 'hub',
+    title: 'Ein Ansprechpartner für alles',
+    text: 'Sie brauchen nicht Gärtner UND Räumungsfirma UND Winterdienst. Wir machen das alles aus einer Hand.',
+  },
+  {
+    icon: 'person_pin',
+    title: 'Direkter Draht zum Chef',
+    text: 'Alex macht die Arbeit und nimmt die Anrufe entgegen. Entscheidungen passieren im Gespräch, nicht im E-Mail-Pingpong.',
+  },
+  {
+    icon: 'lock',
+    title: 'Festpreis oder Monatspauschale',
+    text: 'Transparente Abrechnung vorab. Keine versteckten Nachforderungen, keine überraschenden Stundenzettel.',
+  },
+  {
+    icon: 'schedule',
+    title: 'Planbar und pünktlich',
+    text: 'Einmal abgestimmt, halten wir uns daran. Termine stimmen, damit Ihr Betrieb ungestört bleibt.',
+  },
+];
+---
+
+<BaseLayout
+  title="Für Unternehmen – Gewerbekunden im Oberbergischen | ERNST HAUS & GARTEN"
+  description="Haus- und Gartenservice für Hausverwaltungen, Makler, Praxen, Handwerksbetriebe und Nachlassverwalter im Oberbergischen Kreis. Direkter Ansprechpartner, Festpreis, planbare Termine."
+  canonical="/fuer-unternehmen"
+>
+
+  <!-- Breadcrumb -->
+  <div class="bg-warm-gray-50 border-b border-warm-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+      <nav class="text-sm text-warm-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-1.5">
+          <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Für Unternehmen</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-warm-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- Text -->
+        <div>
+          <div class="inline-flex items-center gap-2 text-sm font-medium text-earth-700 bg-earth-50 px-3 py-1.5 rounded-full mb-5 border border-earth-200">
+            <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">work</span>
+            Für Unternehmen im Oberbergischen
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
+            Ein Ansprechpartner für Haus und Garten &mdash; auch für Ihr Unternehmen
+          </h1>
+          <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed max-w-xl">
+            Wir arbeiten schon heute für Hausverwaltungen, Makler und kleine Betriebe im Oberbergischen. Regelmäßige Grünpflege, Winterdienst, Entrümpelung nach Mietwechseln oder Objekt-Aufbereitung vor dem Verkauf &mdash; alles aus einer Hand, ohne dass Sie mehrere Firmen koordinieren müssen.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href={`tel:${phone.replace(/\s/g, '')}`}
+              class="inline-flex items-center justify-center gap-2.5 bg-green-600 text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-green-700 transition-colors text-base"
+              aria-label="Direkt Alexander Ernst anrufen"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              Direkt Alex anrufen
+            </a>
+            <a
+              href={`mailto:${email}?subject=Anfrage%20Gewerbekunde`}
+              class="inline-flex items-center justify-center gap-2.5 border-2 border-warm-gray-300 text-warm-gray-800 font-semibold px-7 py-3.5 rounded-lg hover:border-green-600 hover:text-green-700 transition-colors text-base"
+              aria-label="E-Mail an info@ernst-hausgarten.de"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              E-Mail schreiben
+            </a>
+          </div>
+
+          <!-- Trust Chips -->
+          <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 pt-6 border-t border-warm-gray-200">
+            <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
+              <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">person</span>
+              Direkter Ansprechpartner
+            </div>
+            <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
+              <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">payments</span>
+              Festpreis oder Monatspauschale
+            </div>
+            <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
+              <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">event_available</span>
+              Planbare Termine
+            </div>
+          </div>
+        </div>
+
+        <!-- Abstrakte Haus+Garten Illustration -->
+        <div class="relative order-first lg:order-none">
+          <div class="relative bg-gradient-to-br from-warm-gray-50 to-earth-50 rounded-2xl aspect-square flex items-center justify-center p-10 sm:p-16">
+            <svg class="w-full h-full max-w-sm" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Dezenter gestrichelter Kreis außen -->
+              <circle cx="200" cy="200" r="175" stroke="#c1c9b8" stroke-width="1" stroke-dasharray="6 8" opacity="0.7"/>
+              <!-- Haus (braun) -->
+              <g>
+                <path d="M110 255 L110 350 L210 350 L210 255 L160 215 Z" fill="#685944" fill-opacity="0.92"/>
+                <rect x="145" y="295" width="30" height="55" fill="#fafaf7" opacity="0.9"/>
+                <rect x="120" y="265" width="18" height="18" fill="#fafaf7" opacity="0.7"/>
+                <rect x="182" y="265" width="18" height="18" fill="#fafaf7" opacity="0.7"/>
+                <!-- Schornstein -->
+                <rect x="185" y="220" width="14" height="22" fill="#453828"/>
+              </g>
+              <!-- Baum / Blatt (grün) -->
+              <g>
+                <path d="M300 100 C310 140 320 170 310 210 C300 250 260 275 260 275 C260 275 220 250 210 210 C200 170 210 140 220 100 C230 60 260 40 260 40 C260 40 290 60 300 100 Z" fill="#80c369" fill-opacity="0.95"/>
+                <path d="M260 40 L260 280" stroke="#3d6330" stroke-width="3" stroke-linecap="round"/>
+                <!-- Blattadern -->
+                <path d="M260 100 L280 90" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+                <path d="M260 130 L290 120" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+                <path d="M260 160 L295 155" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+                <path d="M260 100 L240 90" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+                <path d="M260 130 L230 120" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+                <path d="M260 160 L225 155" stroke="#3d6330" stroke-width="1.5" opacity="0.5"/>
+              </g>
+              <!-- Verbindungsband unten (Boden) -->
+              <line x1="100" y1="350" x2="320" y2="350" stroke="#685944" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FÜR WEN -->
+  <Section bg="light">
+    <SectionHeading
+      title="Für wen wir das machen"
+      subtitle="Fünf typische Zielgruppen, die heute schon mit uns arbeiten oder bei denen wir gut passen. Sie gehören zu keiner der Kategorien? Fragen Sie trotzdem."
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      {targetGroups.map(group => (
+        <div class="bg-white p-7 rounded-2xl border border-warm-gray-200 hover:border-green-300 hover:shadow-md transition-all flex flex-col">
+          <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5 border border-green-100">
+            <span class="material-symbols-outlined text-green-700" style="font-size: 1.75rem;" aria-hidden="true">{group.icon}</span>
+          </div>
+          <h3 class="text-lg font-semibold text-warm-gray-900 mb-3">{group.title}</h3>
+          <p class="text-warm-gray-600 leading-relaxed text-sm mb-5 flex-1">{group.text}</p>
+          <div class="pt-4 border-t border-warm-gray-100 text-xs font-medium text-earth-700">
+            {group.typical}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- PROZESS -->
+  <section class="bg-earth-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <div class="text-center mb-12 sm:mb-16 max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+          Wie wir arbeiten
+        </h2>
+        <p class="mt-4 text-earth-200 text-base sm:text-lg">
+          Unkompliziert, direkt und ohne Umwege über Sachbearbeiter oder Ticketsysteme.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden lg:block absolute top-10 left-[16.6%] right-[16.6%] h-0.5 bg-earth-600/50"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-8 relative">
+          {processSteps.map(step => (
+            <div class="flex flex-col items-center text-center relative">
+              <div class="relative z-10 w-20 h-20 rounded-full bg-green-600 flex items-center justify-center mb-5 border-4 border-earth-800 shadow-lg">
+                <span class="text-white font-bold text-2xl">{step.num}</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">{step.title}</h3>
+              <p class="text-sm text-earth-200 leading-relaxed max-w-xs" set:html={step.text}></p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENZIATOREN -->
+  <Section bg="white">
+    <SectionHeading
+      title="Was uns von anderen unterscheidet"
+      subtitle="Ehrliche USPs, keine Marketing-Floskeln. Das ist, was uns von größeren Firmen abgrenzt — und was Sie als Unternehmen davon haben."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+      {differentiators.map(d => (
+        <div class="p-6 rounded-2xl bg-warm-gray-50 border border-warm-gray-200 hover:border-green-300 transition-colors">
+          <span class="material-symbols-outlined text-green-600 mb-4 block" style="font-size: 2rem;" aria-hidden="true">{d.icon}</span>
+          <h3 class="font-semibold text-warm-gray-900 mb-2 text-base">{d.title}</h3>
+          <p class="text-sm text-warm-gray-600 leading-relaxed">{d.text}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- TRUST STATEMENT -->
+  <Section bg="light">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="material-symbols-outlined text-green-600 mb-4" style="font-size: 2.5rem;" aria-hidden="true">handshake</span>
+      <p class="text-lg sm:text-xl text-warm-gray-700 leading-relaxed italic">
+        &bdquo;Wir arbeiten bereits für Gewerbekunden im Oberbergischen &mdash; regelmäßige Gartenpflege und Auflösungen. Weitere Referenzen nennen wir gerne auf Anfrage, nach Abstimmung mit unseren bestehenden Kunden.&ldquo;
+      </p>
+      <p class="mt-5 text-sm font-semibold text-warm-gray-900">
+        Alexander Ernst <span class="font-normal text-warm-gray-500">· Inhaber</span>
+      </p>
+    </div>
+  </Section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-earth-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+        Lassen Sie uns kurz telefonieren
+      </h2>
+      <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
+        Ein kurzer Anruf genügt, um zu klären, was Sie brauchen und ob wir passen. Unverbindlich und direkt.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+        <Button href={`tel:${phone.replace(/\s/g, '')}`} variant="primary" size="large" ariaLabel="Jetzt anrufen">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Jetzt anrufen
+        </Button>
+        <Button href={whatsappLink} variant="secondary" size="large" external class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20" ariaLabel="WhatsApp starten">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </Button>
+        <Button href={`mailto:${email}?subject=Anfrage%20Gewerbekunde`} variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20" ariaLabel="E-Mail senden">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          E-Mail senden
+        </Button>
+      </div>
+      <div class="mt-10 pt-8 border-t border-earth-700/60 space-y-1">
+        <p class="font-semibold text-white text-lg">Alexander Ernst</p>
+        <p class="text-earth-300 text-sm">Inhaber &middot; {phone}</p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
