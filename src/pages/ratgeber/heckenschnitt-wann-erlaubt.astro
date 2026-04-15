@@ -1,0 +1,448 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const whatsappLink = 'https://wa.me/4917661331466';
+const phone = '+49 176 61331466';
+
+// Stand-Datum fürs E-E-A-T-Signal (wird manuell aktualisiert)
+const standDatum = '15. April 2026';
+
+const faqItems = [
+  {
+    question: 'Darf ich während der Brutzeit (1. März bis 30. September) gar nichts an der Hecke machen?',
+    answer: 'Doch — sogenannte schonende Form- und Pflegeschnitte sind ausdrücklich erlaubt. Das bedeutet: leichte Rückschnitte zum Erhalt der Form, das Entfernen einzelner Äste, das Stutzen des Neuaustriebs. Verboten ist nur das radikale Zurückschneiden („auf den Stock setzen") oder das komplette Entfernen der Hecke. Wichtig: Vor jedem Schnitt in der Brutzeit prüfen, ob Vögel in der Hecke brüten — wenn ja, muss der Schnitt warten.',
+  },
+  {
+    question: 'Was bedeutet „auf den Stock setzen" genau?',
+    answer: 'Damit ist ein radikaler Rückschnitt bis kurz über dem Boden gemeint, bei dem die Hecke praktisch komplett entfernt wird. Die Pflanze soll aus dem verbliebenen Stumpf (dem „Stock") neu austreiben. Das ist während der Brutzeit verboten, weil dabei das ganze Nest- und Lebensraum-Angebot zerstört wird.',
+  },
+  {
+    question: 'Zählt NRW anders als der Bund?',
+    answer: 'Nein. § 39 BNatSchG ist Bundesrecht und gilt bundesweit, also auch in Nordrhein-Westfalen. Einzelne Bundesländer können zusätzliche Regeln haben (z. B. zum Artenschutz bestimmter Hecken-Typen), die strenger sind — NRW folgt aber im Wesentlichen dem Bundesgesetz. Für unser Einsatzgebiet im Oberbergischen und Märkischen Raum ist damit klar: 1. März bis 30. September = nur schonende Schnitte, Rest des Jahres = freier Rückschnitt.',
+  },
+  {
+    question: 'Was passiert, wenn ich erwischt werde?',
+    answer: 'Ein Verstoß gegen § 39 BNatSchG kann als Ordnungswidrigkeit mit einem Bußgeld von bis zu 10.000 € geahndet werden. In schweren Fällen (z. B. zerstörte Brutstätten einer geschützten Art) sind sogar bis zu 65.000 € möglich. In der Praxis werden meist Bußgelder im unteren dreistelligen bis niedrigen vierstelligen Bereich verhängt — aber auch das reicht, um jede Hecken-Aktion unnötig teuer zu machen. Nachbarn, die Verstöße beobachten, können die Untere Naturschutzbehörde informieren.',
+  },
+  {
+    question: 'Darf ich Hecken zwischen 1. Oktober und Ende Februar einfach komplett roden?',
+    answer: 'Zeitlich ja — das Bundesnaturschutzgesetz erlaubt in diesem Zeitraum Rückschnitte und Rodungen. Aber Vorsicht: Wenn die Hecke auf der Grundstücksgrenze steht oder Nachbarn betrifft, kann das Nachbarrechtsgesetz Ihres Bundeslandes zusätzliche Regeln haben (z. B. Mindestabstände, Höhenbeschränkungen). Und bei besonders alten oder großen Hecken kann eine Baumschutzsatzung der Gemeinde greifen. Im Zweifel vorab beim Ordnungsamt nachfragen oder uns anrufen — wir kennen die typischen Stolperfallen.',
+  },
+  {
+    question: 'Was ist, wenn die Hecke dringend weg muss, weil sie z. B. die Sicht auf die Straße versperrt?',
+    answer: 'Dann greift die Verkehrssicherungspflicht. Hecken, die die Sicht auf Verkehrsflächen behindern oder eine akute Gefahr darstellen (z. B. morsche Äste über dem Gehweg), dürfen auch während der Schutzzeit beschnitten werden — aber nur soweit nötig, um die Gefahr zu beseitigen, nicht als genereller Radikalschnitt. Falls in der Hecke aktive Vogelnester zu sehen sind, sollte man trotzdem die Untere Naturschutzbehörde kurz informieren, um sich rechtlich abzusichern.',
+  },
+  {
+    question: 'Darf der Vermieter mir den Heckenschnitt verbieten?',
+    answer: 'Wenn Sie Mieter eines Einfamilienhauses oder einer Wohnung mit eigenem Garten sind, regelt meist der Mietvertrag die Gartenpflege. Die gesetzlichen Schutzzeiten gelten dabei genauso — also auch der Vermieter kann von Ihnen nicht verlangen, während der Brutzeit radikal zu schneiden. Wenn Sie unsicher sind, schreiben Sie den Vermieter kurz an und verweisen Sie auf § 39 BNatSchG. Das beseitigt fast immer den Streit.',
+  },
+  {
+    question: 'Kann ich Sie für den Heckenschnitt beauftragen, auch während der Brutzeit?',
+    answer: 'Ja, natürlich — aber wir halten uns dabei an das Gesetz. Während der Brutzeit (1. März bis 30. September) übernehmen wir ausschließlich schonende Form- und Pflegeschnitte und prüfen vor jedem Einsatz, ob aktive Nester in der Hecke sind. Größere Rückschnitte und Rodungen planen wir mit Ihnen auf den Herbst oder Winter. So bleiben Sie auf der sicheren Seite und die Hecke bleibt gesund.',
+  },
+  {
+    question: 'Ich habe schon während der Schutzzeit geschnitten. Was soll ich tun?',
+    answer: 'Keine Panik. Wenn Sie nur einen normalen Pflegeschnitt gemacht haben (kein Radikalschnitt, keine zerstörten Nester), sind Sie rechtlich im grünen Bereich. Wenn Sie die Hecke stärker zurückgeschnitten oder gerodet haben: dokumentieren Sie den Zustand und die Gründe (z. B. Verkehrssicherung), und wenden Sie sich bei Unsicherheit an die Untere Naturschutzbehörde oder einen Anwalt. In vielen Fällen bleibt es bei einer Verwarnung, wenn der Verstoß nicht grob fahrlässig war.',
+  },
+];
+---
+
+<BaseLayout
+  title="Heckenschnitt: Wann ist er erlaubt, wann verboten? (Stand 2026) | Ratgeber ERNST HAUS & GARTEN"
+  description="§ 39 BNatSchG einfach erklärt: Wann darf man Hecken schneiden, was ist während der Brutzeit erlaubt, welche Ausnahmen gibt es und was droht bei Verstoß. Ehrlicher Praxis-Ratgeber für Hausbesitzer im Oberbergischen."
+  canonical="/ratgeber/heckenschnitt-wann-erlaubt"
+>
+
+  <!-- Breadcrumb -->
+  <div class="bg-warm-gray-50 border-b border-warm-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+      <nav class="text-sm text-warm-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-1.5 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700">Ratgeber</li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Heckenschnitt: Wann erlaubt?</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ARTICLE HERO -->
+  <section class="bg-warm-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-earth-700 bg-earth-50 px-3 py-1.5 rounded-full border border-earth-200 uppercase tracking-wider mb-6">
+        <span class="material-symbols-outlined text-[0.9rem]" aria-hidden="true">description</span>
+        Ratgeber · Recht &amp; Pflege
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
+        Heckenschnitt: Wann ist er erlaubt, wann verboten?
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-warm-gray-600 leading-relaxed">
+        Zwischen 1. März und 30. September dürfen Hecken in Deutschland nicht radikal zurückgeschnitten oder entfernt werden. Warum, welche Ausnahmen es gibt und was Sie als Hausbesitzer konkret tun dürfen &mdash; in einem ehrlichen Ratgeber ohne juristisches Kauderwelsch.
+      </p>
+
+      <!-- Byline + Stand -->
+      <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-warm-gray-500 pb-6 border-b border-warm-gray-200">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">person</span>
+          Alexander Ernst &middot; ERNST HAUS &amp; GARTEN
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">schedule</span>
+          Stand: {standDatum}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR SCHNELLE ANTWORT -->
+  <section class="bg-green-50 border-y border-green-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-white" style="font-size: 1.75rem;" aria-hidden="true">tips_and_updates</span>
+        </div>
+        <div>
+          <div class="text-xs font-bold text-green-800 uppercase tracking-wider">Schnelle Antwort</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-warm-gray-900 mt-1">Die wichtigsten Regeln in zwei Sätzen</h2>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border-2 border-green-200 p-6 sm:p-8 space-y-4">
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-green-600 shrink-0 mt-0.5" style="font-size: 1.5rem;" aria-hidden="true">check_circle</span>
+          <p class="text-base sm:text-lg text-warm-gray-800 leading-relaxed">
+            <strong class="font-semibold text-warm-gray-900">Radikaler Rückschnitt und Rodung erlaubt:</strong> zwischen dem <strong class="font-semibold text-green-700">1. Oktober und dem letzten Februar-Tag</strong>. In diesem Zeitraum dürfen Sie Hecken auf den Stock setzen, stark zurückschneiden oder komplett entfernen.
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-earth-700 shrink-0 mt-0.5" style="font-size: 1.5rem;" aria-hidden="true">visibility_off</span>
+          <p class="text-base sm:text-lg text-warm-gray-800 leading-relaxed">
+            <strong class="font-semibold text-warm-gray-900">Nur schonende Pflegeschnitte erlaubt:</strong> zwischen dem <strong class="font-semibold text-earth-800">1. März und 30. September</strong>. Radikale Rückschnitte, Rodungen oder das „auf den Stock setzen" sind in dieser Zeit per Gesetz verboten &mdash; zum Schutz brütender Vögel.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-green-100">
+          <p class="text-sm text-warm-gray-600 leading-relaxed">
+            <strong class="font-semibold">Rechtsgrundlage:</strong> § 39 Abs. 5 Bundesnaturschutzgesetz (BNatSchG) &mdash; gilt bundesweit, auch in Nordrhein-Westfalen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INHALTSVERZEICHNIS -->
+  <section class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <div class="bg-warm-gray-50 border border-warm-gray-200 rounded-2xl p-6 sm:p-8">
+        <h2 class="text-sm font-bold text-warm-gray-500 uppercase tracking-wider mb-4">In diesem Ratgeber</h2>
+        <ol class="space-y-2 text-base">
+          <li><a href="#gesetz" class="text-green-700 hover:text-green-800 hover:underline">1. Die gesetzliche Grundlage: § 39 BNatSchG</a></li>
+          <li><a href="#verboten" class="text-green-700 hover:text-green-800 hover:underline">2. Was ist während der Schutzzeit verboten?</a></li>
+          <li><a href="#erlaubt" class="text-green-700 hover:text-green-800 hover:underline">3. Was ist trotzdem erlaubt?</a></li>
+          <li><a href="#ausnahmen" class="text-green-700 hover:text-green-800 hover:underline">4. Ausnahmen vom Verbot</a></li>
+          <li><a href="#warum" class="text-green-700 hover:text-green-800 hover:underline">5. Warum überhaupt? Der Vogelschutz-Hintergrund</a></li>
+          <li><a href="#bussgelder" class="text-green-700 hover:text-green-800 hover:underline">6. Was droht bei Verstoß?</a></li>
+          <li><a href="#tipps" class="text-green-700 hover:text-green-800 hover:underline">7. Praxis-Tipps für Hausbesitzer</a></li>
+          <li><a href="#profi" class="text-green-700 hover:text-green-800 hover:underline">8. Wann lohnt sich der Profi?</a></li>
+          <li><a href="#faq" class="text-green-700 hover:text-green-800 hover:underline">9. Häufige Fragen</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIKEL-INHALT -->
+  <article class="bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 space-y-12">
+
+      <!-- 1. GESETZ -->
+      <section id="gesetz">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          1. Die gesetzliche Grundlage: § 39 BNatSchG
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Die zentrale Vorschrift steht im <strong class="font-semibold text-warm-gray-900">Bundesnaturschutzgesetz (BNatSchG), § 39 Absatz 5</strong>. Der Gesetzestext ist kurz und eindeutig:
+        </p>
+        <blockquote class="border-l-4 border-green-600 bg-warm-gray-50 pl-6 pr-4 py-5 my-6 italic text-warm-gray-700 leading-relaxed rounded-r-lg">
+          „Es ist verboten, […] Hecken, lebende Zäune, Gebüsche und andere Gehölze in der Zeit vom 1. März bis zum 30. September abzuschneiden oder auf den Stock zu setzen; zulässig sind schonende Form- und Pflegeschnitte zur Beseitigung des Zuwachses der Pflanzen oder zur Gesunderhaltung von Bäumen."
+          <cite class="block not-italic text-sm text-warm-gray-500 mt-3">— § 39 Abs. 5 Satz 1 Nr. 2 BNatSchG</cite>
+        </blockquote>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed">
+          Das Gesetz gilt <strong class="font-semibold">bundesweit</strong> &mdash; also auch in NRW, Bayern, Hamburg, Berlin oder Sachsen. Einzelne Bundesländer können über ihre Naturschutzgesetze <em>zusätzliche</em> Regeln aufstellen, das bundesweite Verbot während der Brutzeit ist aber überall Mindeststandard.
+        </p>
+      </section>
+
+      <!-- 2. VERBOTEN -->
+      <section id="verboten">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          2. Was ist während der Schutzzeit verboten?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Zwischen dem 1. März und dem 30. September sind drei Arten von Eingriffen untersagt:
+        </p>
+        <div class="space-y-4">
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-earth-700 shrink-0 mt-0.5" style="font-size: 1.5rem;" aria-hidden="true">content_cut</span>
+              <div>
+                <h3 class="font-semibold text-warm-gray-900 mb-1">Radikaler Rückschnitt</h3>
+                <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Starkes Einkürzen der Hecke, bei dem mehr als nur der Neuaustrieb entfernt wird. Je nach Auslegung zählt bereits ein Rückschnitt auf altes Holz als verbotener Eingriff.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-earth-700 shrink-0 mt-0.5" style="font-size: 1.5rem;" aria-hidden="true">park</span>
+              <div>
+                <h3 class="font-semibold text-warm-gray-900 mb-1">„Auf den Stock setzen"</h3>
+                <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Die Hecke wird bis kurz über dem Boden abgeschnitten, damit sie aus dem verbleibenden Stumpf neu austreibt. Während der Brutzeit eindeutig verboten, weil dabei Lebensraum komplett zerstört wird.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-earth-700 shrink-0 mt-0.5" style="font-size: 1.5rem;" aria-hidden="true">delete_sweep</span>
+              <div>
+                <h3 class="font-semibold text-warm-gray-900 mb-1">Entfernung und Rodung</h3>
+                <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Komplettes Entfernen einer Hecke, Roden samt Wurzeln, Umsetzen an anderen Standort. Alles untersagt zwischen 1. März und 30. September.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ERLAUBT -->
+      <section id="erlaubt">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          3. Was ist trotzdem erlaubt?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Das Gesetz schiebt ausdrücklich <strong class="font-semibold">„schonende Form- und Pflegeschnitte"</strong> als Ausnahme ein. Das ist genau der Punkt, den viele Hausbesitzer nicht wissen &mdash; und den der Gesetzgeber bewusst offen gelassen hat, damit die normale Gartenpflege nicht unmöglich wird.
+        </p>
+        <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-6 sm:p-8 space-y-4">
+          <h3 class="font-semibold text-warm-gray-900 text-lg flex items-center gap-2">
+            <span class="material-symbols-outlined text-green-600" style="font-size: 1.5rem;" aria-hidden="true">check_circle</span>
+            Das ist während der Brutzeit erlaubt:
+          </h3>
+          <ul class="space-y-3 text-base text-warm-gray-700 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span><strong class="font-semibold">Formschnitte:</strong> Das Stutzen der Hecke in der ursprünglichen Form, ohne tiefer ins alte Holz zu gehen.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span><strong class="font-semibold">Pflegeschnitte:</strong> Das Entfernen des Neuaustriebs, um die Hecke auf Maß zu halten. Typischerweise 1&ndash;2&times; pro Saison.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span><strong class="font-semibold">Entfernung kranker oder toter Triebe:</strong> Das Ausdünnen kaputter Äste zur Gesunderhaltung ist explizit zulässig.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span><strong class="font-semibold">Das Einkürzen einzelner Störtriebe:</strong> Wenn ein einzelner Ast in den Gehweg ragt oder stört, darf der entfernt werden.</span>
+            </li>
+          </ul>
+        </div>
+        <p class="text-sm sm:text-base text-warm-gray-600 leading-relaxed mt-5">
+          <strong class="font-semibold text-warm-gray-900">Wichtiger Zusatz:</strong> Auch bei erlaubten Pflegeschnitten gilt der allgemeine Artenschutz. Sobald erkennbar ist, dass Vögel aktiv in der Hecke brüten (Nestbau, Eier, Jungvögel), muss der Schnitt warten, bis die Brut ausgeflogen ist.
+        </p>
+      </section>
+
+      <!-- 4. AUSNAHMEN -->
+      <section id="ausnahmen">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          4. Ausnahmen vom Verbot
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Das Gesetz kennt Situationen, in denen auch stärkere Eingriffe während der Schutzzeit erlaubt sein können:
+        </p>
+        <div class="space-y-5">
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-2">Verkehrssicherungspflicht</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Wenn eine Hecke die Sicht auf Verkehrsflächen behindert oder Gefahr für Passanten darstellt, dürfen Sie als Eigentümer soweit schneiden, wie es zur Gefahrenbeseitigung nötig ist &mdash; nicht mehr. Das ist nicht nur erlaubt, sondern oft sogar verpflichtend.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-2">Akute Gefahr</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Droht durch einen morschen Ast oder eine umsturzgefährdete Hecke eine unmittelbare Gefahr für Personen oder Eigentum, darf sofort gehandelt werden. Hier gilt: soviel wie nötig, nicht mehr.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-2">Baumaßnahmen mit Genehmigung</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Wenn eine Hecke im Weg einer genehmigten Baumaßnahme steht, kann die Untere Naturschutzbehörde eine Ausnahmegenehmigung erteilen &mdash; meistens mit Auflagen (z. B. Ersatzpflanzung).</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-2">Forstwirtschaftliche Maßnahmen</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Für land- und forstwirtschaftliche Flächen gelten teilweise abweichende Regeln, die aber für private Hausbesitzer meist nicht relevant sind.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. WARUM -->
+      <section id="warum">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          5. Warum überhaupt? Der Vogelschutz-Hintergrund
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Hecken sind für viele heimische Vogelarten &mdash; Amsel, Rotkehlchen, Zaunkönig, Grasmücken, Heckenbraunelle &mdash; der wichtigste Brutplatz überhaupt. Zwischen März und September ist Brutzeit: Vögel bauen Nester, legen Eier, füttern Küken. Ein radikaler Rückschnitt in dieser Zeit kann ganze Brutsaisons vernichten und trägt aktiv zum Vogelrückgang bei, der in Deutschland seit Jahrzehnten dokumentiert ist.
+        </p>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed">
+          Das ist der Grund, warum der Gesetzgeber 2010 das pauschale Verbot ins Bundesnaturschutzgesetz aufgenommen hat. Die schonenden Pflegeschnitte wurden ausdrücklich erlaubt gelassen, damit normale Gartenpflege weiter möglich bleibt &mdash; aber eben keine Kahlschläge zur Unzeit.
+        </p>
+      </section>
+
+      <!-- 6. BUSSGELDER -->
+      <section id="bussgelder">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          6. Was droht bei Verstoß?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Verstöße gegen § 39 BNatSchG sind Ordnungswidrigkeiten und können mit empfindlichen Bußgeldern geahndet werden:
+        </p>
+        <div class="bg-warm-gray-50 border border-warm-gray-200 rounded-2xl p-6 space-y-3">
+          <div class="flex items-start justify-between gap-4 pb-3 border-b border-warm-gray-200">
+            <span class="text-base text-warm-gray-700">Einfacher Verstoß (leichter Rückschnitt in Schutzzeit)</span>
+            <span class="text-sm font-semibold text-warm-gray-900 whitespace-nowrap">bis ~1.000 €</span>
+          </div>
+          <div class="flex items-start justify-between gap-4 pb-3 border-b border-warm-gray-200">
+            <span class="text-base text-warm-gray-700">Radikaler Rückschnitt oder Rodung</span>
+            <span class="text-sm font-semibold text-warm-gray-900 whitespace-nowrap">bis ~10.000 €</span>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <span class="text-base text-warm-gray-700">Zerstörte Brutstätten geschützter Arten</span>
+            <span class="text-sm font-semibold text-warm-gray-900 whitespace-nowrap">bis 65.000 €</span>
+          </div>
+        </div>
+        <p class="text-sm sm:text-base text-warm-gray-600 leading-relaxed mt-5">
+          In der Praxis werden von Gemeinden meist Bußgelder im unteren dreistelligen bis niedrigen vierstelligen Bereich verhängt &mdash; aber auch das ist teurer als jeder Gärtner, der den Rückschnitt korrekt auf den Herbst verschiebt. Zusätzlich können Kommunen Ersatzpflanzungen anordnen.
+        </p>
+      </section>
+
+      <!-- 7. PRAXIS-TIPPS -->
+      <section id="tipps">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          7. Praxis-Tipps für Hausbesitzer
+        </h2>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">1</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Radikale Schnitte auf Oktober planen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Wer seine Hecke auf den Stock setzen, komplett roden oder stark einkürzen will, sollte das in den Oktober legen. Da sind die Vögel raus, das Laub ist ab, der Rückschnitt ist am wenigsten stressig für die Pflanze.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">2</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Vor jedem Schnitt in der Brutzeit prüfen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Auch erlaubte Pflegeschnitte dürfen keine aktiven Nester stören. Kurz aus ein paar Metern Abstand beobachten, ob Vögel aus der Hecke fliegen oder an- und abfliegen. Wenn ja: warten.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">3</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Bei Unsicherheit die Untere Naturschutzbehörde fragen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Ein kurzer Anruf bei der Gemeinde klärt fast jeden Zweifelsfall. Die Behörde ist in der Regel hilfsbereit, weil ihr an sauberer Information mehr liegt als an Bußgeldern.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">4</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Dokumentieren Sie bei Gefahrensituationen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Wenn Sie wegen Verkehrssicherungspflicht oder akuter Gefahr während der Schutzzeit schneiden müssen, machen Sie vorher Fotos vom Ist-Zustand und halten Sie fest, warum der Eingriff nötig war. Damit sind Sie rechtlich auf der sicheren Seite.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. PROFI CTA -->
+      <section id="profi" class="scroll-mt-8">
+        <div class="bg-earth-800 rounded-3xl p-8 sm:p-10 lg:p-12 text-white">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight mb-5">
+              Wann lohnt sich der Profi für den Heckenschnitt?
+            </h2>
+            <p class="text-base sm:text-lg text-earth-200 leading-relaxed mb-5">
+              Bei kleinen Pflegeschnitten reicht meistens eine Heckenschere und ein ruhiger Samstagmorgen. Bei größeren Hecken, Formschnitten auf Maß, Rückschnitten auf altes Holz oder kompletten Rodungen im Herbst/Winter lohnt sich der Anruf beim Fachbetrieb &mdash; aus drei Gründen:
+            </p>
+            <ul class="space-y-3 mb-7">
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Wir kennen die Gesetzeslage</strong> und halten uns auch während der Schutzzeit an das, was erlaubt ist.</span>
+              </li>
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Wir entsorgen das Schnittgut komplett</strong> &mdash; bei einer großen Hecke kommt da schnell ein kompletter Anhänger voll zusammen.</span>
+              </li>
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Sicherheit und Form</strong> &mdash; eine Hecke sauber auf Maß zu schneiden ist Handwerk. Wir machen das regelmäßig und haben die Werkzeuge dafür.</span>
+              </li>
+            </ul>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <Button href="/leistungen/gartenpflege-heckenschnitt" variant="primary" size="large">Zum Heckenschnitt-Service</Button>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2.5 bg-white/10 text-white border border-white/30 font-semibold px-7 py-3.5 rounded-lg hover:bg-white/20 transition-colors text-base"
+                aria-label="Per WhatsApp anfragen"
+              >
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Fotos per WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- 9. FAQ -->
+  <Section bg="light">
+    <div id="faq" class="scroll-mt-8">
+      <SectionHeading
+        title="Häufige Fragen zum Heckenschnitt-Verbot"
+        subtitle="Die Fragen, die wir von Kunden am häufigsten zum Thema hören."
+      />
+      <div class="max-w-3xl mx-auto">
+        <FAQ items={faqItems} />
+      </div>
+    </div>
+  </Section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-earth-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-2xl mx-auto">
+        Hecke, die dringend geschnitten gehört?
+      </h2>
+      <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
+        Wir machen das, was erlaubt ist &mdash; zur richtigen Zeit, im richtigen Umfang, mit Entsorgung inklusive. Im Oberbergischen und südlichen Märkischen Raum.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+        <Button href={whatsappLink} variant="whatsapp" size="large" external ariaLabel="Anfrage per WhatsApp senden">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp senden
+        </Button>
+        <Button href={`tel:${phone.replace(/\s/g, '')}`} variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20" ariaLabel="Jetzt anrufen">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Jetzt anrufen
+        </Button>
+        <Button href="/kontakt" variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20">
+          Anfrage senden
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
