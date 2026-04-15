@@ -1,0 +1,443 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const whatsappLink = 'https://wa.me/4917661331466';
+const phone = '+49 176 61331466';
+const standDatum = '15. April 2026';
+
+const faqItems = [
+  {
+    question: 'Wann ist der beste Zeitpunkt zum Vertikutieren?',
+    answer: 'Ideal sind zwei Zeitfenster: April bis Mai (nach dem ersten Mähen, wenn der Boden frostfrei und der Rasen schon angewachsen ist) und September bis Anfang Oktober (bevor der Rasen in die Winterruhe geht). Zu früh im Jahr schadet, weil die Gräser noch nicht wachsen. Zu spät im Herbst schadet, weil der Rasen die Regeneration vor dem Frost nicht mehr schafft.',
+  },
+  {
+    question: 'Wie oft sollte man vertikutieren?',
+    answer: 'Für die meisten Gärten reicht einmal im Jahr &mdash; entweder im Frühjahr oder im Herbst. Nur bei stark vermoosten oder verfilzten Rasenflächen lohnen sich zwei Durchgänge (Frühjahr und Herbst). Dauerhaft häufigeres Vertikutieren schwächt den Rasen eher, als dass es ihm hilft.',
+  },
+  {
+    question: 'Vertikutieren bei trockenem oder feuchtem Boden?',
+    answer: 'Der Boden sollte leicht feucht sein, aber nicht nass. Bei knochentrockenem Boden reißt der Vertikutierer die Graswurzeln zu stark aus. Bei zu nassem Boden verschmiert die Erde, die Messer laufen schlecht und es bleiben Löcher zurück. Optimal: zwei Tage nach einem leichten Regen oder nach dem morgendlichen Tau an einem sonnigen Tag.',
+  },
+  {
+    question: 'Wie tief sollte ich vertikutieren?',
+    answer: 'Die Messer sollten etwa 2 bis 3 Millimeter in den Boden eindringen &mdash; nicht mehr. Viele machen hier den Fehler und stellen den Vertikutierer zu tief ein, weil sie denken, tiefer sei gründlicher. Das Gegenteil ist der Fall: zu tiefes Vertikutieren zerstört die Wurzeln, schwächt den Rasen für Wochen und öffnet ihn für Unkraut. Lieber etwas zu flach als zu tief.',
+  },
+  {
+    question: 'Muss ich vor dem Vertikutieren düngen?',
+    answer: 'Nicht zwingend, aber empfehlenswert. Eine Düngung etwa 10 bis 14 Tage vorher gibt dem Rasen die Kraft, sich nach dem Eingriff schnell zu regenerieren. Nach dem Vertikutieren ist es dagegen Pflicht: ohne Nachdüngung und &mdash; bei kahlen Stellen &mdash; ohne Nachsaat erholt sich der Rasen nur schlecht.',
+  },
+  {
+    question: 'Was kommt nach dem Vertikutieren?',
+    answer: 'Drei Schritte: erstens das herausgerissene Material komplett entfernen (am besten mit einem Rechen oder Laubsauger), zweitens bei kahlen Stellen nachsäen (frische Rasensamen auf die offenen Bereiche streuen und leicht andrücken), drittens gründlich wässern. Für die folgenden 2 bis 3 Wochen den Rasen gleichmäßig feucht halten, damit die Samen keimen. Erst wenn der Rasen wieder dicht ist, das normale Mäh-Intervall wieder aufnehmen.',
+  },
+  {
+    question: 'Vertikutieren oder Lüften &mdash; was ist der Unterschied?',
+    answer: 'Vertikutieren arbeitet mit starren Messern, die Moos und Rasenfilz senkrecht aus dem Boden reißen. Lüften (auch „Aerifizieren") arbeitet dagegen mit Hohlstacheln, die zylindrische Löcher in den Boden stechen, damit Luft und Wasser besser eindringen. Vertikutieren ist die gängigere Methode für den Hausgarten. Lüften lohnt sich vor allem auf stark verdichteten Böden oder Sportplätzen.',
+  },
+  {
+    question: 'Kann ich vertikutieren, wenn der Rasen viel Moos hat?',
+    answer: 'Gerade dann lohnt es sich. Allerdings ist Moos meistens Symptom, nicht Ursache &mdash; es wächst, wo der Rasen zu schwach ist: oft durch Staunässe, zu viel Schatten, zu niedrigen pH-Wert oder Nährstoffmangel. Nur Vertikutieren ohne die Ursache zu beheben bringt den Moos binnen einem Jahr wieder. Parallel den Boden prüfen (pH-Wert-Test), ggf. kalken, drainieren oder Teile des Rasens in Schattenpflanzung umwandeln.',
+  },
+  {
+    question: 'Wie lange darf ich den Rasen nach dem Vertikutieren nicht betreten?',
+    answer: 'Mindestens die ersten zwei Wochen sollte der Rasen geschont werden &mdash; kein Fußball, keine Gartenparty, kein Hund, der herumtollt. Nach Nachsaat gilt das erst recht, weil die jungen Triebe sehr empfindlich sind. Nach etwa drei bis vier Wochen ist der Rasen normalerweise wieder voll belastbar.',
+  },
+];
+---
+
+<BaseLayout
+  title="Vertikutieren: Wann, wie oft und wie richtig? (2026) | Ratgeber ERNST HAUS & GARTEN"
+  description="Praxis-Ratgeber zum Vertikutieren: Wann ist der richtige Zeitpunkt, wie oft pro Jahr, wie tief, welche Fehler vermeiden. Von einem Gärtner aus dem Oberbergischen ehrlich erklärt."
+  canonical="/ratgeber/vertikutieren-wann-richtig"
+>
+
+  <!-- Breadcrumb -->
+  <div class="bg-warm-gray-50 border-b border-warm-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+      <nav class="text-sm text-warm-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-1.5 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700">Ratgeber</li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Vertikutieren: Wann & wie richtig?</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ARTICLE HERO -->
+  <section class="bg-warm-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-green-800 bg-green-50 px-3 py-1.5 rounded-full border border-green-200 uppercase tracking-wider mb-6">
+        <span class="material-symbols-outlined text-[0.9rem]" aria-hidden="true">grass</span>
+        Ratgeber · Rasenpflege
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
+        Vertikutieren: Wann, wie oft und wie richtig?
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-warm-gray-600 leading-relaxed">
+        Vertikutieren ist die wichtigste Rasen-Pflegeaktion des Jahres &mdash; wenn man es zum richtigen Zeitpunkt und in der richtigen Tiefe macht. Wenn nicht, schadet es mehr als es nützt. Dieser Ratgeber erklärt, worauf es wirklich ankommt, aus Sicht eines Gärtners aus dem Oberbergischen.
+      </p>
+
+      <!-- Byline + Stand -->
+      <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-warm-gray-500 pb-6 border-b border-warm-gray-200">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">person</span>
+          Alexander Ernst &middot; ERNST HAUS &amp; GARTEN
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">schedule</span>
+          Stand: {standDatum}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR SCHNELLE ANTWORT -->
+  <section class="bg-green-50 border-y border-green-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-white" style="font-size: 1.75rem;" aria-hidden="true">tips_and_updates</span>
+        </div>
+        <div>
+          <div class="text-xs font-bold text-green-800 uppercase tracking-wider">Schnelle Antwort</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-warm-gray-900 mt-1">Die drei wichtigsten Regeln</h2>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border-2 border-green-200 p-6 sm:p-8 space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">1</div>
+          <p class="text-base sm:text-lg text-warm-gray-800 leading-relaxed">
+            <strong class="font-semibold text-warm-gray-900">Zeitpunkt:</strong> April bis Mai oder September bis Anfang Oktober &mdash; nie im Hochsommer, nie bei Frost. Einmal pro Jahr reicht meistens.
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">2</div>
+          <p class="text-base sm:text-lg text-warm-gray-800 leading-relaxed">
+            <strong class="font-semibold text-warm-gray-900">Tiefe:</strong> Nur 2&ndash;3 Millimeter in den Boden &mdash; nicht tiefer. Zu tiefes Vertikutieren zerstört den Rasen statt ihn zu erneuern.
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 rounded-full bg-green-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">3</div>
+          <p class="text-base sm:text-lg text-warm-gray-800 leading-relaxed">
+            <strong class="font-semibold text-warm-gray-900">Nachsorge:</strong> Material restlos abrechen, kahle Stellen nachsäen, 2&ndash;3 Wochen gleichmäßig wässern. Ohne diese Schritte war die ganze Aktion umsonst.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INHALTSVERZEICHNIS -->
+  <section class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <div class="bg-warm-gray-50 border border-warm-gray-200 rounded-2xl p-6 sm:p-8">
+        <h2 class="text-sm font-bold text-warm-gray-500 uppercase tracking-wider mb-4">In diesem Ratgeber</h2>
+        <ol class="space-y-2 text-base">
+          <li><a href="#was-ist" class="text-green-700 hover:text-green-800 hover:underline">1. Was ist Vertikutieren eigentlich?</a></li>
+          <li><a href="#wann" class="text-green-700 hover:text-green-800 hover:underline">2. Wann ist der richtige Zeitpunkt?</a></li>
+          <li><a href="#wie-oft" class="text-green-700 hover:text-green-800 hover:underline">3. Wie oft pro Jahr?</a></li>
+          <li><a href="#anleitung" class="text-green-700 hover:text-green-800 hover:underline">4. Schritt-für-Schritt Anleitung</a></li>
+          <li><a href="#fehler" class="text-green-700 hover:text-green-800 hover:underline">5. Die häufigsten Fehler</a></li>
+          <li><a href="#werkzeug" class="text-green-700 hover:text-green-800 hover:underline">6. Welches Gerät? Hand, Elektro, Benzin</a></li>
+          <li><a href="#profi" class="text-green-700 hover:text-green-800 hover:underline">7. Wann lohnt sich der Profi?</a></li>
+          <li><a href="#faq" class="text-green-700 hover:text-green-800 hover:underline">8. Häufige Fragen</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIKEL-INHALT -->
+  <article class="bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 space-y-12">
+
+      <!-- 1. WAS IST VERTIKUTIEREN -->
+      <section id="was-ist">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          1. Was ist Vertikutieren eigentlich?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Vertikutieren bedeutet: senkrechte Messer fahren durch die oberste Bodenschicht Ihres Rasens und reißen Moos, abgestorbene Grashalme und Rasenfilz heraus. Der Name kommt vom lateinischen <em>vertere</em> („drehen, senkrecht") und <em>cutare</em> („schneiden") &mdash; also wörtlich „senkrecht schneiden".
+        </p>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Warum ist das nötig? In jedem Rasen sammelt sich über die Zeit eine Schicht aus abgestorbenen Halmen, Moos und Pflanzenresten an &mdash; der sogenannte <strong class="font-semibold">Rasenfilz</strong>. Dieser Filz hat mehrere Nebenwirkungen:
+        </p>
+        <ul class="space-y-2 text-base text-warm-gray-700 leading-relaxed mb-5 ml-6 list-disc">
+          <li>Er verhindert, dass Regen und Dünger bis zu den Graswurzeln vordringen</li>
+          <li>Er macht den Boden luftdicht, sodass die Wurzeln nicht mehr „atmen" können</li>
+          <li>Er bietet Moos und Unkraut einen idealen Nährboden</li>
+          <li>Er lässt den Rasen weich und schwammig wirken, während die einzelnen Halme immer dünner werden</li>
+        </ul>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed">
+          Vertikutieren entfernt diese Filzschicht und gibt dem Rasen wieder Luft, Licht und Platz zum Wachsen. Richtig gemacht ist es der Schlüssel zu einem dichten, grünen Rasen &mdash; falsch gemacht ist es der sicherste Weg, sich die Arbeit eines ganzen Jahres zu ruinieren.
+        </p>
+      </section>
+
+      <!-- 2. WANN -->
+      <section id="wann">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          2. Wann ist der richtige Zeitpunkt?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Es gibt zwei Zeitfenster, in denen Vertikutieren sinnvoll ist. Alle anderen Monate sind entweder zu früh, zu heiß oder zu kalt.
+        </p>
+        <div class="space-y-5">
+          <div class="bg-green-50 border-l-4 border-green-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-2 text-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-green-700" aria-hidden="true">schedule</span>
+              Frühjahr: April bis Mai
+            </h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">
+              Der beste Zeitraum für die meisten Gärten. Warten Sie, bis der Rasen den ersten Schnitt hinter sich hat und die Bodentemperatur stabil über 10&nbsp;°C liegt &mdash; dann wachsen die Gräser aktiv und regenerieren sich schnell nach dem Eingriff. <strong class="font-semibold">Zu früh (März)</strong> ist schlecht, weil der Boden noch kalt ist und der Rasen nicht genug Kraft hat.
+            </p>
+          </div>
+          <div class="bg-green-50 border-l-4 border-green-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-2 text-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-green-700" aria-hidden="true">schedule</span>
+              Spätsommer/Frühherbst: September bis Anfang Oktober
+            </h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">
+              Zweiter günstiger Zeitraum. Die Sommerhitze ist vorbei, es regnet wieder zuverlässiger, und der Rasen hat noch 4&ndash;6 Wochen Wachstumszeit, um sich vor dem Winter zu erholen. <strong class="font-semibold">Zu spät (Mitte Oktober)</strong> ist schlecht, weil der Rasen die Regeneration vor dem ersten Frost nicht mehr schafft.
+            </p>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-2 text-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-earth-700" aria-hidden="true">visibility_off</span>
+              Was Sie vermeiden sollten
+            </h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">
+              Vertikutieren im Hochsommer (Juni bis August), bei Hitzeperioden, bei Bodenfrost, bei staunassem Boden und bei frisch angelegten Rasenflächen im ersten Jahr. In all diesen Fällen überwiegt der Schaden den Nutzen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. WIE OFT -->
+      <section id="wie-oft">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          3. Wie oft pro Jahr?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Die häufigste Frage &mdash; und die Antwort ist pragmatisch: <strong class="font-semibold text-warm-gray-900">einmal pro Jahr reicht für die meisten Rasenflächen.</strong> Wählen Sie dafür entweder das Frühjahrs- oder das Herbst-Fenster, je nachdem, was zeitlich besser passt.
+        </p>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-5">
+          Zweimal pro Jahr (Frühjahr UND Herbst) lohnt sich nur, wenn Ihr Rasen sehr stark vermoost oder verfilzt ist &mdash; zum Beispiel nach Jahren ohne Pflege oder in Schattenlagen mit viel Moosdruck. Auch dann gilt: lieber einmal richtig als zweimal zu heftig.
+        </p>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed">
+          <strong class="font-semibold text-warm-gray-900">Nie sinnvoll:</strong> Vertikutieren mehrmals pro Jahr als Dauermaßnahme. Das reißt den Rasen langfristig dünn und fördert genau die Moos- und Unkrautprobleme, die Sie eigentlich bekämpfen wollen.
+        </p>
+      </section>
+
+      <!-- 4. ANLEITUNG -->
+      <section id="anleitung">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          4. Schritt-für-Schritt: So machen Sie es richtig
+        </h2>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">1</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">10&ndash;14 Tage vorher düngen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Ein normaler Rasendünger reicht. Das gibt dem Rasen die Kraft, sich nach dem Vertikutieren schnell zu regenerieren.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">2</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Am Tag des Vertikutierens den Rasen kurz mähen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Auf etwa 2&ndash;3 cm Länge, damit die Vertikutierer-Messer direkt auf die Filzschicht treffen und nicht durch hohes Gras gebremst werden.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">3</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Tiefe einstellen: 2&ndash;3 Millimeter</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Bei den meisten Geräten eine Skala am Rad. Lieber zu flach anfangen und bei Bedarf nachjustieren. Tiefer als 3&nbsp;mm ist nie richtig.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">4</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Den Rasen einmal in Bahnen vertikutieren</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Gleichmäßig, ohne sich zu überlappen. Bei sehr starkem Moosbefall eventuell einen zweiten Durchgang im 90&deg;-Winkel zum ersten &mdash; aber nur bei wirklich schwerem Befall.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">5</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Material komplett abrechen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Das herausgerissene Moos und der Filz müssen vollständig weg &mdash; wenn Sie das liegen lassen, schimmelt es. Laubrechen oder Laubsauger, je nach Fläche.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">6</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">Kahle Stellen nachsäen</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">An Stellen, wo die Grasnarbe dünn geworden ist, frische Rasensamen ausbringen. Leicht andrücken oder dünn mit Rasenerde abdecken, damit der Wind sie nicht wegträgt.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-green-100 text-green-800 font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">7</div>
+            <div>
+              <h3 class="font-semibold text-warm-gray-900 mb-1">2&ndash;3 Wochen konsequent wässern</h3>
+              <p class="text-base text-warm-gray-700 leading-relaxed">Der Rasen muss in der Regenerationsphase gleichmäßig feucht bleiben, damit die Nachsaat keimt und die vorhandenen Gräser nachwachsen. In dieser Zeit: kein Mähen, kein Betreten.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FEHLER -->
+      <section id="fehler">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          5. Die häufigsten Fehler
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Aus unserer Praxis die fünf Klassiker, die wir bei Kunden immer wieder sehen:
+        </p>
+        <div class="space-y-4">
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Zu tief eingestellt</h3>
+            <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">„Wenn tiefer = gründlicher" &mdash; falsch. Der Vertikutierer reißt dann lebende Wurzeln statt nur Filz. Resultat: ein Rasen, der sich wochenlang nicht erholt und stellenweise kahl bleibt.</p>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Falscher Zeitpunkt</h3>
+            <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Im März, wenn der Boden noch kalt ist, oder im Juli bei 30&nbsp;°C. Beides ruiniert den Rasen, statt ihn zu erneuern. April-Mai oder September ist die Regel.</p>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Material liegen lassen</h3>
+            <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Das herausgerissene Moos-Filz-Gemisch bleibt auf dem Rasen, schimmelt und erstickt genau die neuen Triebe, die Sie eigentlich fördern wollten. Konsequent abharken oder absaugen.</p>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Keine Nachsaat trotz kahler Stellen</h3>
+            <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Wo die Grasnarbe offen liegt, nisten sich innerhalb weniger Wochen Unkraut und Moos ein. Nachsäen ist kein „optional", sondern Pflicht.</p>
+          </div>
+          <div class="bg-earth-50 border-l-4 border-earth-600 p-5 rounded-r-lg">
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Ohne die Moos-Ursache zu beheben</h3>
+            <p class="text-sm sm:text-base text-warm-gray-700 leading-relaxed">Wenn der Rasen nach 6 Monaten wieder voll Moos ist, liegt das nicht am Vertikutierer &mdash; es liegt am Boden. Staunässe, zu niedriger pH-Wert, zu viel Schatten oder Nährstoffmangel müssen behoben werden, sonst ist die Aktion jedes Jahr umsonst.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. WERKZEUG -->
+      <section id="werkzeug">
+        <h2 class="text-2xl sm:text-3xl font-bold text-warm-gray-900 mb-5 scroll-mt-8">
+          6. Welches Gerät? Hand, Elektro oder Benzin?
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-700 leading-relaxed mb-6">
+          Die Wahl hängt vor allem von der Fläche ab:
+        </p>
+        <div class="space-y-5">
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Handvertikutierer (bis ~50&nbsp;m²)</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Für kleine Rasenflächen, gute Erholungs-Alternative zum Fitnessstudio. Günstig (~30&ndash;60&nbsp;€), keine Wartung, aber anstrengend und ungleichmäßiger als motorisierte Geräte.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Elektro-Vertikutierer (~50&ndash;300&nbsp;m²)</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Der Standard für Hausgärten. Kostet zwischen 100 und 300&nbsp;€, braucht aber eine Steckdose im Garten und ist bei nasser Witterung mit Vorsicht zu behandeln. Gute Tiefen-Einstellung, gleichmäßiges Ergebnis.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Benzin-Vertikutierer (ab ~300&nbsp;m²)</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Für große Flächen oder wenn keine Stromversorgung vorhanden ist. Teurer (400&ndash;1.500&nbsp;€), lauter, wartungsintensiver, dafür unabhängig und deutlich stärker. Für die meisten Privatgärten überdimensioniert.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-warm-gray-900 mb-1">Mieten statt kaufen</h3>
+            <p class="text-base text-warm-gray-700 leading-relaxed">Wenn Sie einmal im Jahr vertikutieren, lohnt sich ein eigenes Gerät selten. Baumärkte bieten Tagesmieten zwischen 15 und 40&nbsp;€ &mdash; deutlich günstiger als der Kaufpreis, und Sie müssen nichts lagern oder warten.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. PROFI CTA -->
+      <section id="profi" class="scroll-mt-8">
+        <div class="bg-earth-800 rounded-3xl p-8 sm:p-10 lg:p-12 text-white">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight mb-5">
+              Wann lohnt sich der Profi fürs Vertikutieren?
+            </h2>
+            <p class="text-base sm:text-lg text-earth-200 leading-relaxed mb-5">
+              Bei kleinen Gärten mit gepflegtem Rasen können Sie Vertikutieren gut selbst machen &mdash; mit dem richtigen Zeitpunkt und der richtigen Tiefe. Drei Situationen, in denen ein Anruf beim Fachbetrieb trotzdem sinnvoll ist:
+            </p>
+            <ul class="space-y-3 mb-7">
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Größere Rasenflächen (ab ~200&nbsp;m²):</strong> Die Hand- oder Elektro-Variante wird zum Halbtagsprojekt. Mit unserer Ausstattung sind wir in 1&ndash;2 Stunden durch und Sie haben den Samstag frei.</span>
+              </li>
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Stark vermooste Rasenflächen:</strong> Hier braucht es oft mehr als nur Vertikutieren &mdash; pH-Wert prüfen, Boden-Ursache beheben, gezielte Nachsaat. Wir liefern die Gesamtlösung statt einen Teilschritt.</span>
+              </li>
+              <li class="flex items-start gap-3 text-earth-100">
+                <span class="material-symbols-outlined text-green-400 shrink-0 mt-0.5" style="font-size: 1.25rem;" aria-hidden="true">check_circle</span>
+                <span><strong class="font-semibold text-white">Als Teil der saisonalen Gartenpflege:</strong> Wir übernehmen die komplette Frühjahrspflege inkl. Vertikutieren, Düngen, Mähen und Heckenschnitt. Ein Termin, eine Rechnung, alles erledigt.</span>
+              </li>
+            </ul>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <Button href="/leistungen/gartenpflege-heckenschnitt" variant="primary" size="large">Zum Gartenpflege-Service</Button>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2.5 bg-white/10 text-white border border-white/30 font-semibold px-7 py-3.5 rounded-lg hover:bg-white/20 transition-colors text-base"
+                aria-label="Per WhatsApp anfragen"
+              >
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Fotos per WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- 8. FAQ -->
+  <Section bg="light">
+    <div id="faq" class="scroll-mt-8">
+      <SectionHeading
+        title="Häufige Fragen zum Vertikutieren"
+        subtitle="Die Fragen, die wir von Kunden am häufigsten zum Thema hören."
+      />
+      <div class="max-w-3xl mx-auto">
+        <FAQ items={faqItems} />
+      </div>
+    </div>
+  </Section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-earth-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-2xl mx-auto">
+        Rasen fit machen fürs Frühjahr?
+      </h2>
+      <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
+        Wir übernehmen das &mdash; Vertikutieren, Nachsaat, komplette Frühjahrspflege. Im Oberbergischen und südlichen Märkischen Raum.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+        <Button href={whatsappLink} variant="whatsapp" size="large" external ariaLabel="Anfrage per WhatsApp senden">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp senden
+        </Button>
+        <Button href={`tel:${phone.replace(/\s/g, '')}`} variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20" ariaLabel="Jetzt anrufen">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Jetzt anrufen
+        </Button>
+        <Button href="/kontakt" variant="secondary" size="large" class="!bg-white/10 !text-white !border-white/30 hover:!bg-white/20">
+          Anfrage senden
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

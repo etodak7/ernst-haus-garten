@@ -76,30 +76,48 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
   ctaLabel="Gartenpflege anfragen"
 >
   <div class="bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
-      <div class="p-6 bg-green-50 rounded-xl border border-green-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+      <div class="max-w-2xl mb-8 p-6 bg-green-50 rounded-xl border border-green-100">
         <h3 class="font-semibold text-warm-gray-900 mb-2">Regelmäßige Pflege möglich</h3>
         <p class="text-base text-warm-gray-600 leading-relaxed">
           Wir bieten regelmäßige Gartenpflege in verschiedenen Intervallen an – wöchentlich, zweiwöchentlich oder nach saisonalem Bedarf. Sprechen Sie uns auf einen passenden Rhythmus an.
         </p>
       </div>
-      <a
-        href="/ratgeber/heckenschnitt-wann-erlaubt"
-        class="group block p-6 bg-earth-50 rounded-xl border border-earth-100 hover:border-earth-300 hover:shadow-md transition-all"
-      >
-        <div class="flex items-center gap-2 text-xs font-bold text-earth-700 uppercase tracking-wider mb-2">
-          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">description</span>
-          Ratgeber
+
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-2 mb-4 text-sm font-semibold text-warm-gray-500 uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[1.1rem]" aria-hidden="true">description</span>
+          Ratgeber zum Thema
         </div>
-        <h3 class="font-semibold text-warm-gray-900 mb-2 group-hover:text-earth-800 transition-colors">Heckenschnitt: Wann ist er erlaubt?</h3>
-        <p class="text-base text-warm-gray-600 leading-relaxed">
-          Zwischen 1. März und 30. September dürfen Hecken nicht radikal zurückgeschnitten werden. Was genau erlaubt ist, welche Ausnahmen es gibt &mdash; in unserem Praxis-Ratgeber.
-        </p>
-        <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-earth-700 group-hover:text-earth-900">
-          Zum Ratgeber
-          <span class="material-symbols-outlined text-[1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
-        </span>
-      </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <a
+            href="/ratgeber/heckenschnitt-wann-erlaubt"
+            class="group block p-6 bg-earth-50 rounded-xl border border-earth-100 hover:border-earth-300 hover:shadow-md transition-all"
+          >
+            <h3 class="font-semibold text-warm-gray-900 mb-2 group-hover:text-earth-800 transition-colors">Heckenschnitt: Wann ist er erlaubt?</h3>
+            <p class="text-sm text-warm-gray-600 leading-relaxed">
+              Zwischen 1. März und 30. September dürfen Hecken nicht radikal zurückgeschnitten werden. § 39 BNatSchG einfach erklärt.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-earth-700 group-hover:text-earth-900">
+              Zum Ratgeber
+              <span class="material-symbols-outlined text-[1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+            </span>
+          </a>
+          <a
+            href="/ratgeber/vertikutieren-wann-richtig"
+            class="group block p-6 bg-green-50 rounded-xl border border-green-100 hover:border-green-300 hover:shadow-md transition-all"
+          >
+            <h3 class="font-semibold text-warm-gray-900 mb-2 group-hover:text-green-800 transition-colors">Vertikutieren: Wann und wie richtig?</h3>
+            <p class="text-sm text-warm-gray-600 leading-relaxed">
+              April–Mai oder September. Nur 2–3 mm tief. Die wichtigsten Regeln und häufigsten Fehler in einer praktischen Anleitung.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-green-700 group-hover:text-green-800">
+              Zum Ratgeber
+              <span class="material-symbols-outlined text-[1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </ServicePageLayout>
