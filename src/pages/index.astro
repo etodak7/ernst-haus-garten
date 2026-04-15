@@ -183,26 +183,26 @@ const faqItems = [
 
     <!-- Säule 1: Rund ums Haus -->
     <div class="mb-12 sm:mb-14">
-      <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-earth-200">
-        <span class="material-symbols-outlined text-earth-700" style="font-size: 1.75rem;" aria-hidden="true">home</span>
-        <h3 class="text-xl sm:text-2xl font-semibold text-warm-gray-900">Rund ums Haus</h3>
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b-2 border-earth-200">
+        <span class="material-symbols-outlined text-earth-700" style="font-size: 1.9rem;" aria-hidden="true">home</span>
+        <h3 class="text-xl sm:text-2xl font-bold text-warm-gray-900">Rund ums Haus</h3>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
         {houseServices.map(service => (
-          <ServiceCard {...service} />
+          <ServiceCard {...service} variant="haus" />
         ))}
       </div>
     </div>
 
     <!-- Säule 2: Rund um den Garten -->
     <div>
-      <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-green-200">
-        <span class="material-symbols-outlined text-green-700" style="font-size: 1.75rem;" aria-hidden="true">grass</span>
-        <h3 class="text-xl sm:text-2xl font-semibold text-warm-gray-900">Rund um den Garten</h3>
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b-2 border-green-200">
+        <span class="material-symbols-outlined text-green-700" style="font-size: 1.9rem;" aria-hidden="true">grass</span>
+        <h3 class="text-xl sm:text-2xl font-bold text-warm-gray-900">Rund um den Garten</h3>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
         {gardenServices.map(service => (
-          <ServiceCard {...service} />
+          <ServiceCard {...service} variant="garten" />
         ))}
       </div>
     </div>

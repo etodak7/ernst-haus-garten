@@ -5,25 +5,58 @@ interface Props {
   href: string;
   materialIcon?: string;
   icon?: string; // legacy SVG HTML fallback
+  variant?: 'garten' | 'haus' | 'default';
 }
 
-const { title, description, href, materialIcon, icon } = Astro.props;
+const { title, description, href, materialIcon, icon, variant = 'default' } = Astro.props;
+
+const variantStyles = {
+  garten: {
+    iconBg: 'bg-green-100',
+    iconText: 'text-green-700',
+    border: 'border-warm-gray-200 hover:border-green-300',
+    titleHover: 'group-hover:text-green-800',
+    link: 'text-green-700 group-hover:text-green-800',
+  },
+  haus: {
+    iconBg: 'bg-earth-100',
+    iconText: 'text-earth-700',
+    border: 'border-warm-gray-200 hover:border-earth-300',
+    titleHover: 'group-hover:text-earth-800',
+    link: 'text-earth-700 group-hover:text-earth-800',
+  },
+  default: {
+    iconBg: 'bg-green-100',
+    iconText: 'text-green-700',
+    border: 'border-warm-gray-200 hover:border-green-300',
+    titleHover: 'group-hover:text-green-800',
+    link: 'text-green-700 group-hover:text-green-800',
+  },
+};
+
+const v = variantStyles[variant];
 ---
 
-<a href={href} class="group block bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-200">
-  <div class="mb-5">
+<a
+  href={href}
+  class:list={[
+    'group block bg-white rounded-2xl p-6 sm:p-7 border shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200',
+    v.border,
+  ]}
+>
+  <div class:list={['w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-transform group-hover:scale-105', v.iconBg]}>
     {materialIcon ? (
-      <span class="material-symbols-outlined text-green-600" style="font-size: 2.5rem;">{materialIcon}</span>
+      <span class:list={['material-symbols-outlined', v.iconText]} style="font-size: 1.9rem;" aria-hidden="true">{materialIcon}</span>
     ) : (
-      <div class="w-12 h-12 rounded-lg bg-green-100 text-green-600 flex items-center justify-center group-hover:bg-green-200 transition-colors">
+      <div class:list={['w-7 h-7', v.iconText]}>
         <Fragment set:html={icon} />
       </div>
     )}
   </div>
-  <h3 class="text-lg font-semibold text-warm-gray-900 mb-2 group-hover:text-green-700 transition-colors">{title}</h3>
-  <p class="text-base text-warm-gray-600 leading-relaxed mb-4">{description}</p>
-  <span class="inline-flex items-center gap-1 text-base font-medium text-green-600 group-hover:text-green-700 transition-colors">
+  <h3 class:list={['text-xl font-semibold text-warm-gray-900 mb-2 transition-colors', v.titleHover]}>{title}</h3>
+  <p class="text-base text-warm-gray-600 leading-relaxed mb-5">{description}</p>
+  <span class:list={['inline-flex items-center gap-1.5 text-base font-semibold transition-colors', v.link]}>
     Mehr erfahren
-    <span class="material-symbols-outlined text-[1.1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
+    <span class="material-symbols-outlined text-[1.1rem] group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
   </span>
 </a>
