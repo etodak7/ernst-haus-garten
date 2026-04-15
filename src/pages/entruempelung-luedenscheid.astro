@@ -75,42 +75,53 @@ const steps = [
   },
 ];
 
+const stadtteile = [
+  'Lüdenscheid-Innenstadt',
+  'Brügge',
+  'Hellersen',
+  'Kluse',
+  'Oberrahmede',
+  'Honsel',
+  'Bierbaum',
+  'Wehberg',
+];
+
 const faqItems = [
   {
-    question: 'Was kostet eine Entrümpelung?',
-    answer: 'Die Kosten hängen von Menge, Zugänglichkeit (Stockwerk, Aufzug, Parkmöglichkeit) und Art der Gegenstände ab. Wir machen Ihnen nach Fotos oder einer kurzen Besichtigung einen verbindlichen Festpreis — danach richten wir uns. Keine Nachforderungen, keine Überraschungen.',
+    question: 'Wie oft kommen Sie nach Lüdenscheid?',
+    answer: 'Regelmäßig – Lüdenscheid ist einer unserer Schwerpunkt-Orte jenseits des Oberbergischen Kreises. Die Anfahrt von Marienheide dauert etwa 25 bis 30 Minuten. Bei größeren Projekten planen wir diese Zeit gleich mit ein, damit sie sich weder in der Rechnung noch im Termin niederschlägt.',
+  },
+  {
+    question: 'Lüdenscheid ist im Märkischen Kreis — arbeiten Sie da trotzdem?',
+    answer: 'Absolut. Die Kreisgrenze zwischen Oberberg und Märkisch ist für uns nur Verwaltung, keine praktische Hürde. Wir übernehmen in Lüdenscheid genauso zuverlässig wie in Gummersbach oder Marienheide. Festpreis vorab, besenreine Übergabe, alles wie gewohnt.',
+  },
+  {
+    question: 'In welchen Stadtteilen von Lüdenscheid arbeiten Sie?',
+    answer: 'Überall — Innenstadt, Brügge, Hellersen, Kluse, Oberrahmede, Honsel, Bierbaum, Wehberg und die umliegenden Nachbarschaften. Bei sehr abgelegenen Randlagen melden wir uns mit einer realistischen Einschätzung der Fahrtzeit, damit Sie wissen, woran Sie sind.',
+  },
+  {
+    question: 'Was kostet eine Entrümpelung in Lüdenscheid?',
+    answer: 'Die Kosten hängen von Menge, Zugänglichkeit (Stockwerk, Aufzug, Parkmöglichkeit) und Art der Gegenstände ab. Wir machen Ihnen nach Fotos oder einer kurzen Besichtigung einen verbindlichen Festpreis, der auch die Anfahrt aus Marienheide fair einrechnet. Keine Nachforderungen.',
   },
   {
     question: 'Was passiert mit verwertbaren Sachen? Gibt es eine Wertanrechnung?',
     answer: 'Gut erhaltene Möbel, Antiquitäten oder andere verwertbare Gegenstände können wir auf die Gesamtkosten anrechnen. In manchen Fällen reduziert das den Preis deutlich. Sie entscheiden vorher, was mit eventuell wertvollen Dingen passieren soll.',
   },
   {
-    question: 'Machen Sie auch Messiewohnungen?',
-    answer: 'Ja. Wir arbeiten diskret, ohne Vorurteile und mit der nötigen Ruhe. Solche Situationen sind für die Betroffenen belastend genug – wir machen die Räumung so unaufgeregt wie möglich und bringen das Objekt wieder in einen vorzeigbaren Zustand.',
-  },
-  {
-    question: 'Wie schnell geht das?',
-    answer: 'Eine normale Wohnung schaffen wir meistens an einem Tag. Ein ganzes Haus dauert je nach Größe 2–3 Tage. Kurzfristige Termine versuchen wir möglich zu machen – am besten direkt telefonisch oder per WhatsApp anfragen.',
-  },
-  {
     question: 'Erhalte ich einen Entsorgungsnachweis?',
-    answer: 'Ja, auf Wunsch gerne. Wir entsorgen fachgerecht bei zugelassenen Stellen im Oberbergischen und dokumentieren die Entsorgungswege. Besonders für Hausverwaltungen, Makler und Nachlassverwalter ist das oft wichtig.',
+    answer: 'Ja, auf Wunsch gerne. Wir entsorgen fachgerecht über zugelassene Stellen in der Region und dokumentieren die Entsorgungswege. Besonders für Hausverwaltungen, Makler und Nachlassverwalter in Lüdenscheid ist das oft wichtig.',
   },
   {
-    question: 'In welchem Gebiet sind Sie tätig?',
-    answer: 'Schwerpunkt ist der Oberbergische Kreis (Marienheide, Gummersbach, Wipperfürth, Bergneustadt, Meinerzhagen, Wiehl, Engelskirchen) und das südliche Märkische (Lüdenscheid, Halver, Kierspe). Bei größeren Projekten fahren wir auch etwas weiter.',
-  },
-  {
-    question: 'Machen Sie das auch für Hausverwaltungen, Makler oder Nachlassverwalter?',
+    question: 'Machen Sie das auch für Hausverwaltungen und Makler in Lüdenscheid?',
     answer: 'Ja. Wir übernehmen Auflösungen und Räumungen für Hausverwaltungen (besenreine Übergaben zwischen Mietern), Makler (Objekt-Aufbereitung vor Verkauf) und Nachlassverwalter (diskrete Räumungen mit Wertanrechnung und Entsorgungsnachweis). Rechnung auf Firma selbstverständlich. Mehr dazu auf unserer Seite „Für Unternehmen".',
   },
 ];
 ---
 
 <BaseLayout
-  title="Entrümpelung & Haushaltsauflösung im Oberbergischen – ERNST HAUS & GARTEN"
-  description="Entrümpelung, Haushaltsauflösung und Räumung im Oberbergischen Kreis – Gummersbach, Lüdenscheid, Wipperfürth und Umgebung. Festpreis vorab, besenreine Übergabe, diskret und zuverlässig."
-  canonical="/entruempelung"
+  title="Entrümpelung Lüdenscheid – diskret, Festpreis, besenrein | ERNST HAUS & GARTEN"
+  description="Entrümpelung und Haushaltsauflösung in Lüdenscheid und allen Stadtteilen. Festpreis vorab, besenreine Übergabe, planbare Termine. Regelmäßig vor Ort im Märkischen Kreis."
+  canonical="/entruempelung-luedenscheid"
 >
 
   <!-- Breadcrumb -->
@@ -120,7 +131,9 @@ const faqItems = [
         <ol class="flex items-center gap-1.5">
           <li><a href="/" class="hover:text-green-700 transition-colors">Startseite</a></li>
           <li class="text-warm-gray-300">/</li>
-          <li class="text-warm-gray-700 font-medium">Entrümpelung</li>
+          <li><a href="/entruempelung" class="hover:text-green-700 transition-colors">Entrümpelung</a></li>
+          <li class="text-warm-gray-300">/</li>
+          <li class="text-warm-gray-700 font-medium">Lüdenscheid</li>
         </ol>
       </nav>
     </div>
@@ -135,13 +148,13 @@ const faqItems = [
         <div>
           <div class="inline-flex items-center gap-2 text-sm font-medium text-green-700 bg-green-50 px-3 py-1.5 rounded-full mb-5 border border-green-200">
             <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">location_on</span>
-            Entrümpelung im Oberbergischen
+            Entrümpelung in Lüdenscheid
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-warm-gray-900 leading-tight">
-            Entrümpelung, Haushaltsauflösung und Räumung &ndash; diskret, Festpreis, besenrein
+            Entrümpelung in Lüdenscheid &ndash; <span class="text-green-700">regelmäßig vor Ort, auch jenseits der Kreisgrenze</span>
           </h1>
           <p class="mt-5 sm:mt-6 text-base sm:text-lg text-warm-gray-600 leading-relaxed max-w-xl">
-            Von der einzelnen Kellerräumung bis zur kompletten Haushaltsauflösung. Wir schauen uns vorab an, was zu tun ist, nennen einen Festpreis und halten uns daran &mdash; ohne Nachforderungen, ohne Überraschungen.
+            Lüdenscheid ist einer unserer Schwerpunkt-Orte im Märkischen Kreis &mdash; rund 25 km von unserem Sitz in Marienheide. Wir sind hier regelmäßig unterwegs, ob Wohnungsauflösung in der Innenstadt, Kellerräumung in Brügge oder ein größerer Auftrag in Hellersen. Die Kreisgrenze ist für uns nur Verwaltung.
           </p>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
@@ -163,6 +176,10 @@ const faqItems = [
           <!-- Trust Chips -->
           <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-3 max-w-lg">
             <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
+              <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">schedule</span>
+              Planbare Termine
+            </div>
+            <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
               <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">payments</span>
               Festpreis vorab
             </div>
@@ -171,23 +188,19 @@ const faqItems = [
               Besenreine Übergabe
             </div>
             <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
-              <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">visibility_off</span>
-              Diskret & respektvoll
-            </div>
-            <div class="flex items-center gap-2 text-sm font-medium text-warm-gray-700">
               <span class="material-symbols-outlined text-green-600 text-[1.1rem]" aria-hidden="true">description</span>
               Entsorgungsnachweis
             </div>
           </div>
         </div>
 
-        <!-- Icon-Karte rechts (kein Stock-Foto — echte Bilder folgen) -->
+        <!-- Rechte Karte: Familienbetrieb + Distanz -->
         <div class="relative order-first lg:order-none">
           <div class="relative bg-gradient-to-br from-earth-50 to-warm-gray-100 rounded-2xl aspect-square flex items-center justify-center overflow-hidden">
             <span class="material-symbols-outlined text-earth-700/20" style="font-size: 18rem;" aria-hidden="true">delete_sweep</span>
             <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-sm">
               <p class="text-sm font-semibold text-warm-gray-900">Familienbetrieb aus Marienheide</p>
-              <p class="text-xs text-warm-gray-600 mt-0.5">Persönlich, regional, direkt erreichbar.</p>
+              <p class="text-xs text-warm-gray-600 mt-0.5">~25 km nach Lüdenscheid &middot; regelmäßig im Märkischen Kreis</p>
             </div>
           </div>
         </div>
@@ -196,19 +209,19 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- B2B-Callout-Strip (Fluchtweg für Gewerbekunden, keine Hauptseiten-Konkurrenz) -->
+  <!-- B2B-Callout-Strip -->
   <section class="bg-earth-50 border-y border-earth-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-sm sm:text-base">
         <div class="flex items-center gap-2.5 text-warm-gray-800">
           <span class="material-symbols-outlined text-earth-700 shrink-0" style="font-size: 1.4rem;" aria-hidden="true">work</span>
-          <span>Sie sind <strong class="font-semibold">Hausverwaltung, Makler oder Nachlassverwalter?</strong></span>
+          <span>Sie verwalten Objekte in Lüdenscheid? <strong class="font-semibold">Wir übernehmen auch Gewerbe-Aufträge.</strong></span>
         </div>
         <a
           href="/fuer-unternehmen"
           class="inline-flex items-center gap-1.5 text-earth-800 font-semibold hover:text-earth-900 whitespace-nowrap group"
         >
-          Zur Seite „Für Unternehmen&rdquo;
+          Für Unternehmen
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
@@ -220,8 +233,8 @@ const faqItems = [
   <!-- LEISTUNGS-GRID -->
   <Section bg="light">
     <SectionHeading
-      title="Was wir räumen"
-      subtitle="Ob Einzelraum oder komplettes Haus – wir haben eine Lösung für die typischen Situationen, in denen eine Räumung ansteht."
+      title="Was wir in Lüdenscheid räumen"
+      subtitle="Ob Einzelraum oder komplettes Haus – wir haben für jede typische Räumungssituation eine Lösung."
     />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
       {services.map(service => (
@@ -234,8 +247,48 @@ const faqItems = [
     </div>
   </Section>
 
-  <!-- WARUM WIR -->
+  <!-- LOKALER ANKER: Wir sind regelmäßig in Lüdenscheid -->
   <Section bg="white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-5xl mx-auto">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-semibold text-earth-700 bg-earth-50 px-3 py-1.5 rounded-full border border-earth-200 uppercase tracking-wider mb-4">
+          <span class="material-symbols-outlined text-[1rem]" aria-hidden="true">location_on</span>
+          Vor Ort in Lüdenscheid
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-warm-gray-900 leading-tight mb-5">
+          Wir sind regelmäßig in Lüdenscheid unterwegs
+        </h2>
+        <p class="text-base sm:text-lg text-warm-gray-600 leading-relaxed mb-4">
+          Lüdenscheid ist unser größter Zielmarkt im Märkischen Kreis &mdash; etwa 25 km Fahrtzeit von unserem Sitz in Marienheide. Wir sind hier regelmäßig für private Kunden und kleinere Gewerbeaufträge unterwegs und planen bei größeren Projekten die Anfahrt fair mit ein.
+        </p>
+        <p class="text-base sm:text-lg text-warm-gray-600 leading-relaxed">
+          Das heißt für Sie: <strong class="font-semibold text-warm-gray-900">planbare Termine</strong>, kein übertriebener Anfahrtsaufpreis, und die Gewissheit, dass ein Anruf genauso zuverlässig beantwortet wird wie bei einem Nachbarort.
+        </p>
+      </div>
+      <div class="bg-warm-gray-50 border border-warm-gray-200 rounded-2xl p-8">
+        <h3 class="text-lg font-semibold text-warm-gray-900 mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-600" style="font-size: 1.5rem;" aria-hidden="true">home</span>
+          Stadtteile, in denen wir arbeiten
+        </h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
+          {stadtteile.map(teil => (
+            <li class="flex items-start gap-2 text-sm text-warm-gray-700">
+              <svg class="w-4 h-4 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>{teil}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-xs text-warm-gray-500 mt-5 pt-4 border-t border-warm-gray-200">
+          Ihr Stadtteil ist nicht dabei? Rufen Sie trotzdem an &mdash; bei abgelegeneren Lagen nennen wir Ihnen vorab eine realistische Einschätzung zur Fahrtzeit.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- WARUM WIR -->
+  <Section bg="light">
     <div class="max-w-5xl mx-auto">
       <div class="bg-white border border-warm-gray-200 rounded-3xl p-8 sm:p-10 shadow-sm">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
@@ -250,59 +303,6 @@ const faqItems = [
     </div>
   </Section>
 
-  <!-- EINSATZGEBIETE -->
-  <Section bg="light">
-    <SectionHeading
-      title="Entrümpelung in Ihrer Stadt"
-      subtitle="Für unsere zwei Schwerpunkt-Städte haben wir eigene Seiten mit lokalen Infos, Ortsteilen und Anfahrtszeiten."
-    />
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
-      <a
-        href="/entruempelung-gummersbach"
-        class="group bg-white p-7 rounded-2xl border-2 border-warm-gray-200 hover:border-green-400 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-      >
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-green-700" style="font-size: 1.9rem;" aria-hidden="true">location_on</span>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h3 class="text-xl font-bold text-warm-gray-900 group-hover:text-green-700 transition-colors">Entrümpelung Gummersbach</h3>
-            <p class="text-xs text-warm-gray-500 mt-1 uppercase tracking-wide">~50.000 Einwohner &middot; ~10 Min &middot; Oberbergischer Kreis</p>
-            <p class="text-sm text-warm-gray-700 mt-3 leading-relaxed">Unser nächstgelegenes Einsatzgebiet. Meistens am selben Tag vor Ort.</p>
-            <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-green-700">
-              Zur Seite für Gummersbach
-              <span class="material-symbols-outlined text-[1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href="/entruempelung-luedenscheid"
-        class="group bg-white p-7 rounded-2xl border-2 border-warm-gray-200 hover:border-green-400 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-      >
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-green-700" style="font-size: 1.9rem;" aria-hidden="true">location_on</span>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h3 class="text-xl font-bold text-warm-gray-900 group-hover:text-green-700 transition-colors">Entrümpelung Lüdenscheid</h3>
-            <p class="text-xs text-warm-gray-500 mt-1 uppercase tracking-wide">~72.000 Einwohner &middot; ~25 km &middot; Märkischer Kreis</p>
-            <p class="text-sm text-warm-gray-700 mt-3 leading-relaxed">Unser größter Zielmarkt jenseits der Kreisgrenze. Regelmäßig vor Ort, planbare Termine.</p>
-            <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-green-700">
-              Zur Seite für Lüdenscheid
-              <span class="material-symbols-outlined text-[1rem] group-hover:translate-x-0.5 transition-transform" aria-hidden="true">arrow_forward</span>
-            </span>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <p class="text-center text-sm text-warm-gray-500 mt-8 max-w-2xl mx-auto">
-      Wir arbeiten außerdem regelmäßig in Wipperfürth, Bergneustadt, Meinerzhagen, Wiehl, Engelskirchen, Halver und Kierspe. Ihr Ort ist nicht dabei? <a href="/kontakt" class="text-green-700 font-semibold hover:text-green-800">Fragen Sie einfach an</a>.
-    </p>
-  </Section>
-
   <!-- PROZESS -->
   <section class="bg-earth-800 text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
@@ -311,12 +311,11 @@ const faqItems = [
           In 4 Schritten zum geräumten Objekt
         </h2>
         <p class="mt-4 text-earth-200 text-base sm:text-lg">
-          Unser Ablauf ist transparent und unkompliziert. Sie wissen von Anfang an, was auf Sie zukommt.
+          Unser Ablauf ist transparent und unkompliziert &mdash; egal ob für einen Keller in Brügge oder eine Haushaltsauflösung in der Lüdenscheider Innenstadt.
         </p>
       </div>
 
       <div class="relative">
-        <!-- Verbindungslinie (Desktop) -->
         <div class="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-earth-600/50"></div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 relative">
@@ -340,8 +339,8 @@ const faqItems = [
   <!-- FAQ -->
   <Section bg="light">
     <SectionHeading
-      title="Häufige Fragen zur Entrümpelung"
-      subtitle="Die wichtigsten Antworten, bevor Sie anfragen. Was hier fehlt, fragen Sie einfach direkt."
+      title="Häufige Fragen — Entrümpelung in Lüdenscheid"
+      subtitle="Die wichtigsten Antworten speziell für Lüdenscheid und Umgebung. Was hier fehlt, fragen Sie einfach direkt."
     />
     <div class="max-w-3xl mx-auto">
       <FAQ items={faqItems} />
@@ -352,7 +351,7 @@ const faqItems = [
   <section class="bg-earth-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-2xl mx-auto">
-        Keller voll? Wohnung geräumt? Haus leer?
+        Räumung in Lüdenscheid? Kreisgrenze egal, Zuverlässigkeit nicht.
       </h2>
       <p class="mt-4 text-earth-300 text-base sm:text-lg max-w-xl mx-auto">
         Schicken Sie uns Fotos per WhatsApp &mdash; wir melden uns zeitnah mit einer ehrlichen Einschätzung und vereinbaren einen Termin.
