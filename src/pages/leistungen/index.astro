@@ -5,44 +5,40 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Button from '../../components/Button.astro';
 
-const icons = {
-  garden: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
-  tree: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3L4 14h5v7h6v-7h5L12 3z"/></svg>',
-  box: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>',
-  snow: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m5-17l-5 5-5-5m10 14l-5-5-5 5M2 12h20M5 7l5 5-5 5m14-10l-5 5 5 5"/></svg>',
-};
+const houseServices = [
+  {
+    title: 'Entrümpelung & Haushaltsauflösung',
+    description: 'Keller, Dachboden, Garage oder komplette Haushaltsauflösung – diskret, besenrein und zum Festpreis.',
+    href: '/entruempelung',
+    materialIcon: 'delete_sweep',
+  },
+  {
+    title: 'Winterdienst & kleinere Außenarbeiten',
+    description: 'Schneeräumung, Streuen, Rasenkanten und kleinere Pflasterausbesserungen – zuverlässig und pünktlich.',
+    href: '/leistungen/winterdienst-aussenarbeiten',
+    materialIcon: 'ac_unit',
+  },
+];
 
-const services = [
+const gardenServices = [
   {
     title: 'Gartenpflege & Heckenschnitt',
     description: 'Regelmäßige Pflege, saubere Rückschnitte und ein gepflegter Außenbereich – für private Grundstücke und kleinere Objekte.',
     href: '/leistungen/gartenpflege-heckenschnitt',
-    icon: icons.garden,
+    materialIcon: 'content_cut',
   },
   {
     title: 'Baumpflege & Fällarbeiten',
     description: 'Baumpflege und Fällarbeiten im zulässigen Rahmen – fachgerecht, umsichtig und mit Blick auf Sicherheit.',
     href: '/leistungen/baumpflege-faellarbeiten',
-    icon: icons.tree,
-  },
-  {
-    title: 'Entrümpelung & Haushaltsauflösung',
-    description: 'Von Keller bis Dachboden: schnelle, diskrete und besenreine Räumung mit klarer Abstimmung.',
-    href: '/entruempelung',
-    icon: icons.box,
-  },
-  {
-    title: 'Winterdienst & kleinere Außenarbeiten',
-    description: 'Schneeräumung, Rasenkanten, kleinere Pflasterausbesserungen und weitere Arbeiten im Außenbereich.',
-    href: '/leistungen/winterdienst-aussenarbeiten',
-    icon: icons.snow,
+    materialIcon: 'park',
   },
 ];
 ---
 
 <BaseLayout
-  title="Leistungen – ERNST HAUS & GARTEN"
-  description="Gartenpflege, Baumpflege, Entrümpelung, Winterdienst und kleinere Außenarbeiten in Marienheide und Umgebung."
+  title="Leistungen – Gartenpflege, Entrümpelung & Winterdienst im Oberbergischen | ERNST HAUS & GARTEN"
+  description="Zwei Säulen, ein Ansprechpartner: Gartenpflege, Baumpflege, Heckenschnitt, Entrümpelung, Haushaltsauflösung und Winterdienst im Oberbergischen Kreis."
   canonical="/leistungen"
 >
   <!-- Breadcrumb -->
@@ -62,20 +58,42 @@ const services = [
     <SectionHeading
       tag="h1"
       title="Unsere Leistungen"
-      subtitle="Wir kümmern uns um die Arbeiten, die rund um Ihre Immobilie anfallen – verlässlich, sauber und mit klarer Abstimmung."
+      subtitle="Zwei Säulen, ein Ansprechpartner: Wir übernehmen die Arbeiten rund ums Haus und rund um den Garten – ohne dass Sie mehrere Firmen koordinieren müssen."
     />
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      {services.map(service => (
-        <ServiceCard {...service} />
-      ))}
+
+    <!-- Säule 1: Rund ums Haus -->
+    <div class="mb-12 sm:mb-14">
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b-2 border-earth-200">
+        <span class="material-symbols-outlined text-earth-700" style="font-size: 1.9rem;" aria-hidden="true">home</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-warm-gray-900">Rund ums Haus</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        {houseServices.map(service => (
+          <ServiceCard {...service} variant="haus" />
+        ))}
+      </div>
+    </div>
+
+    <!-- Säule 2: Rund um den Garten -->
+    <div>
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b-2 border-green-200">
+        <span class="material-symbols-outlined text-green-700" style="font-size: 1.9rem;" aria-hidden="true">grass</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-warm-gray-900">Rund um den Garten</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        {gardenServices.map(service => (
+          <ServiceCard {...service} variant="garten" />
+        ))}
+      </div>
     </div>
 
     <div class="mt-16 max-w-2xl mx-auto text-center">
       <p class="text-warm-gray-600 leading-relaxed">
         Sie sind sich nicht sicher, ob wir Ihnen bei Ihrem Anliegen helfen können? Schreiben Sie uns einfach – wir geben Ihnen gerne eine ehrliche Einschätzung.
       </p>
-      <div class="mt-6">
+      <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
         <Button href="/kontakt" variant="primary" size="large">Jetzt Anfrage senden</Button>
+        <Button href="/fuer-unternehmen" variant="outline" size="large">Für Unternehmen</Button>
       </div>
     </div>
   </Section>
