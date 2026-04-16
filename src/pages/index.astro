@@ -107,6 +107,7 @@ const faqItems = [
   title="ERNST HAUS & GARTEN – Gartenpflege, Entrümpelung & Winterdienst im Oberbergischen"
   description="Gartenpflege, Entrümpelung, Haushaltsauflösung, Baumpflege und Winterdienst im Oberbergischen – Gummersbach, Lüdenscheid, Wipperfürth & Umgebung. Zuverlässig, diskret, regional. Jetzt anfragen."
   canonical="/"
+  preloadImage="/images/hero-garten.webp"
 >
 
   <!-- Hero -->
@@ -150,10 +151,15 @@ const faqItems = [
           <div class="relative -mx-4 sm:-mx-6 lg:mx-0 lg:rounded-2xl overflow-hidden lg:shadow-lg lg:ring-1 lg:ring-warm-gray-200/50">
             <img
               src="/images/hero-garten.webp"
+              srcset="/images/hero-garten-mobile.webp 600w, /images/hero-garten.webp 1100w"
+              sizes="(max-width: 640px) 100vw, 1100px"
               alt="Gepflegter Garten mit Sträuchern und Heckenelementen in Marienheide"
               class="w-full h-64 sm:h-80 lg:h-[30rem] object-cover"
+              width="1100"
+              height="618"
               loading="eager"
               fetchpriority="high"
+              decoding="async"
             />
             <!-- Sanfter Verlauf für besseren Badge-Kontrast -->
             <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
